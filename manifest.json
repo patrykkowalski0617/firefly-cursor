@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Firefly Cursor",
+  "version": "1.0",
+  "description": "Firefly Cursor",
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": ["storage"],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ]
+}
