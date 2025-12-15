@@ -15,18 +15,26 @@ export default defineConfig({
       ],
     }),
   ],
+
   build: {
     outDir: "dist",
+    emptyOutDir: true,
+
     rollupOptions: {
       input: {
         options: resolve(__dirname, "src/options/index.jsx"),
         content: resolve(__dirname, "src/content/index.js"),
       },
+
       output: {
-        entryFileNames: "[name].js", // wygeneruje: options.js i content.js
-        assetFileNames: "[name].[ext]",
-        chunkFileNames: "[name].js",
+        entryFileNames: "[name].js",
+        chunkFileNames: "chunks/[name].js",
+        assetFileNames: "[name][extname]",
       },
     },
+  },
+
+  server: {
+    open: "/src/options/options.dev.html",
   },
 });
