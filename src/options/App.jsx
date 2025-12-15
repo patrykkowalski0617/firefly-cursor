@@ -1,41 +1,24 @@
 import { useState, useEffect } from "react";
 
-const isChromeExtension =
-  typeof chrome !== "undefined" &&
-  chrome.storage &&
-  chrome.storage.sync;
-
 export default function App() {
   const [color, setColor] = useState("#ff0000");
 
   useEffect(() => {
-    if (isChromeExtension) {
-      chrome.storage.sync.get(["color"], (result) => {
-        if (result.color) setColor(result.color);
-      });
-    } else {
-      // DEV fallback
-      const saved = localStorage.getItem("color");
-      if (saved) setColor(saved);
-    }
+    chrome.storage.sync.get(["color"], (result) => {
+      if (result.color) setColor(result.color);
+    });
   }, []);
 
   const handleChange = (e) => {
-    const newColor = e.target.value;
-    setColor(newColor);
-
-    if (isChromeExtension) {
-      chrome.storage.sync.set({ color: newColor });
-    } else {
-      // DEV fallback
-      localStorage.setItem("color", newColor);
-    }
+    setColor(e.target.value);
+    chrome.storage.sync.set({ color: e.target.value });
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Firefly Cursor</h1>
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h1>Firefly Cursor Settings</h1>
       <input type="color" value={color} onChange={handleChange} />
+      <p>Selected color: {color}</p>
     </div>
   );
 }
