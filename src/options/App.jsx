@@ -1,14 +1,13 @@
-import { createGlobalStyle } from "styled-components";
-import CursorPreview from "./components/CursorPreview";
-import SettingsContainer from "./components/SettingsContainer";
-import HiddenInfo from "./components/HiddenInfo";
+import { createGlobalStyle } from 'styled-components';
+import CursorPreview from './components/CursorPreview';
+import SettingsContainer from './components/SettingsContainer';
+import HiddenInfo from './components/HiddenInfo';
 
-import { useChromeStorage } from "./hooks/useChromeStorage";
-import { useFireflyCSS } from "./hooks/useFireflyCSS";
+import { useChromeStorage } from './hooks/useChromeStorage';
+import { useFireflyCSS } from './hooks/useFireflyCSS';
 
-import { useEffect } from "react";
-import { colorFromValue, lightenColor } from "./utils/color";
-
+import { useEffect } from 'react';
+import { colorFromValue, lightenColor } from './utils/color';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -33,36 +32,35 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default function App() {
-  const [temperature, setTemperature] = useChromeStorage("temperature", 50);
-  const [intensity, setIntensity] = useChromeStorage("intensity", 50);
-  const [size, setSize] = useChromeStorage("sizeValue", 50);
-  const [vibrant, setVibrant] = useChromeStorage("clickVibrantColor", false);
-  const [lightPreview, setLightPreview] = useChromeStorage("previewLightMode", false);
-  const [tempMode, setTempMode] = useChromeStorage("temperatureMode", false);
+  const [temperature, setTemperature] = useChromeStorage('temperature', 50);
+  const [intensity, setIntensity] = useChromeStorage('intensity', 50);
+  const [size, setSize] = useChromeStorage('sizeValue', 50);
+  const [vibrant, setVibrant] = useChromeStorage('clickVibrantColor', false);
+  const [lightPreview, setLightPreview] = useChromeStorage('previewLightMode', false);
+  const [tempMode, setTempMode] = useChromeStorage('temperatureMode', false);
 
   useFireflyCSS({ temperature, intensity, size });
 
   useEffect(() => {
-  if (!chrome?.storage?.sync) return;
+    if (!chrome?.storage?.sync) return;
 
-  const color = colorFromValue(temperature);
-  const rgb = `rgba(${color.r}, ${color.g}, ${color.b}, var(--opacity))`;
+    const color = colorFromValue(temperature);
+    const rgb = `rgba(${color.r}, ${color.g}, ${color.b}, var(--opacity))`;
 
-  const lighter = lightenColor(color, 0.3);
-  const rgbLighter = `rgba(${lighter.r}, ${lighter.g}, ${lighter.b}, var(--opacity))`;
+    const lighter = lightenColor(color, 0.3);
+    const rgbLighter = `rgba(${lighter.r}, ${lighter.g}, ${lighter.b}, var(--opacity))`;
 
-  // CSS variables (tak jak wcześniej)
-  document.documentElement.style.setProperty("--pulse-from", rgb);
-  document.documentElement.style.setProperty("--pulse-to", rgbLighter);
+    // CSS variables (tak jak wcześniej)
+    document.documentElement.style.setProperty('--pulse-from', rgb);
+    document.documentElement.style.setProperty('--pulse-to', rgbLighter);
 
-  // STORAGE
-  chrome.storage.sync.set({
-    temperature,
-    pulseFrom: rgb,
-    pulseTo: rgbLighter,
-  });
-}, [temperature]);
-
+    // STORAGE
+    chrome.storage.sync.set({
+      temperature,
+      pulseFrom: rgb,
+      pulseTo: rgbLighter,
+    });
+  }, [temperature]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-export const click = (fireflyCursor, isItUserSettingPage) => {
+export const click = (fireflyCursor) => {
   const CLICK_DURATION_MS = 3 * 1000 + 50;
 
   let timeoutId = null;
@@ -52,9 +52,7 @@ export const click = (fireflyCursor, isItUserSettingPage) => {
     timeoutId = setTimeout(() => cursor.classList.remove('click'), CLICK_DURATION_MS);
   };
 
-  const clickElement = isItUserSettingPage ? document.querySelector('.cursorWrapper') : window;
-
-  clickElement.addEventListener('click', (e) => onClick(e, fireflyCursor));
+  window.addEventListener('click', (e) => onClick(e, fireflyCursor));
 
   const applyVibrantSetting = (enabled) => {
     clickVibrantColor = !!enabled;

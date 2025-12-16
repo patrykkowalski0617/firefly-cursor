@@ -3,7 +3,7 @@ import { getVariablesFromStorage } from './getVariablesFromStorage.js';
 import { mouseMove } from './mouseMove.js';
 import { click } from './click.js';
 
-const { fireflyCursor, isItUserSettingPage } = createFireflyCursor();
+const fireflyCursor = createFireflyCursor();
 getVariablesFromStorage();
 mouseMove(fireflyCursor);
-click(fireflyCursor, isItUserSettingPage);
+click(fireflyCursor);
