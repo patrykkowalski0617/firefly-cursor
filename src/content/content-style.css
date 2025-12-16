@@ -5,9 +5,9 @@
   animation:
     pulse-shadow 5s infinite alternate ease-in-out,
     micro-drift 10s infinite forwards linear;
-  transition: opacity 1s ease;
   position: fixed;
   opacity: 0;
+  transition: opacity 1s ease;
 }
 
 .fireflyCursor.visible {
@@ -32,12 +32,23 @@
 
 @keyframes pulse-shadow-click {
   0% {
-    box-shadow: rgba(var(--random-color-r), var(--random-color-g), var(--random-color-b), 0.5) 0px
-      0px 5px 5px;
+    box-shadow: rgba(
+        var(--random-color-r),
+        var(--random-color-g),
+        var(--random-color-b),
+        0.5
+      )
+      0px 0px 5px 5px;
   }
   15% {
-    box-shadow: rgba(var(--random-color-r), var(--random-color-g), var(--random-color-b), 0.4) 0px
-      0px calc(100px * var(--size-multiplier)) calc(100px * var(--size-multiplier));
+    box-shadow: rgba(
+        var(--random-color-r),
+        var(--random-color-g),
+        var(--random-color-b),
+        0.4
+      )
+      0px 0px calc(100px * var(--size-multiplier))
+      calc(100px * var(--size-multiplier));
   }
   100% {
     box-shadow: var(--pulse-from) 0px 0px calc(80px * var(--size-multiplier))

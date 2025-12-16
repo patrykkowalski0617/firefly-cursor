@@ -14,7 +14,7 @@ export const onMousemove = (fireflyCursor) => {
     currentMouseX = e.clientX;
     if (!isFirstMouseMoveDone) {
       isFirstMouseMoveDone = true;
-      fireflyCursor.classList.add('visible');
+      fireflyCursor.classList.add("visible");
     }
 
     if (!rAF_ID) {
@@ -24,12 +24,12 @@ export const onMousemove = (fireflyCursor) => {
 
   const onFullscreenChange = () => {
     if (document.fullscreenElement) {
-      fireflyCursor.style.visibility = 'hidden';
+      fireflyCursor.style.visibility = "hidden";
     } else {
-      fireflyCursor.style.visibility = 'visible';
+      fireflyCursor.style.visibility = "visible";
     }
   };
 
-  window.addEventListener('mousemove', onMousemoveHandler);
-  document.addEventListener('fullscreenchange', onFullscreenChange);
+  window.addEventListener("mousemove", onMousemoveHandler);
+  document.addEventListener("fullscreenchange", onFullscreenChange);
 };

@@ -1,11 +1,11 @@
-import { useChromeStorage } from '../../hooks/useChromeStorage';
-import SliderSetting from './SliderSetting';
+import { useChromeStorage } from "../../hooks/useChromeStorage";
+import SliderTemplate from "./SliderTemplate";
 
 const SliderTemperature = () => {
-  const [temperature, setTemperature] = useChromeStorage('temperature', 50);
+  const [temperature, setTemperature] = useChromeStorage("temperature", 50);
   return (
     <>
-      <SliderSetting
+      <SliderTemplate
         id="colorSlider"
         label="Temperature"
         min={0}

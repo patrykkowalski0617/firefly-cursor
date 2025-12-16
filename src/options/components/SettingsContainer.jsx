@@ -1,29 +1,15 @@
-import SliderSetting from './SliderSetting/SliderSetting';
-import SliderTemperature from './SliderSetting/SliderTemperature';
-import ToggleSetting from './ToggleSetting';
+import SliderSize from "./Sliders/SliderSize";
+import SliderIntensity from "./Sliders/SliderIntensity";
+import SliderTemperature from "./Sliders/SliderTemperature";
+import ToggleSetting from "./ToggleSetting";
 
-export default function SettingsContainer({ setIntensity, setSize }) {
+export default function SettingsContainer() {
   return (
     <>
-      <SliderSetting
-        id="sizeSlider"
-        label="Size"
-        min={30}
-        max={70}
-        value={50}
-        gradient="linear-gradient(to right, #cfcfcf, #6587ff)"
-        onChange={(e) => setSize(Number(e.target.value))}
-      />
+      <SliderSize />
 
-      <SliderSetting
-        id="intensitySlider"
-        label="Intensity"
-        min={30}
-        max={80}
-        value={50}
-        gradient="linear-gradient(to right, #cfcfcf, #d29d52)"
-        onChange={(e) => setIntensity(Number(e.target.value))}
-      />
+      <SliderIntensity />
+
       <SliderTemperature />
 
       <ToggleSetting

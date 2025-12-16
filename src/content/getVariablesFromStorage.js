@@ -1,13 +1,14 @@
-import { calcColor } from './utilities';
+import { calcColor } from "./utilities";
 
 export const getVariablesFromStorage = () => {
   const defaultSettings = {
     temperature: 50,
     intensity: 50,
-    sizeValue: 50,
+    size: 50,
   };
 
-  const hasChromeStorage = typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync;
+  const hasChromeStorage =
+    typeof chrome !== "undefined" && chrome.storage && chrome.storage.sync;
 
   function applySetting(key, value) {
     let val = value;
@@ -16,26 +17,32 @@ export const getVariablesFromStorage = () => {
       val = defaultSettings[key];
     }
 
-    if (key === 'temperature' && val !== undefined) {
+    if (key === "temperature" && val !== undefined) {
       const { rgbDarker, rgbLighter } = calcColor(val);
 
       document.documentElement.style.setProperty(
-        '--pulse-from',
-        `rgba(${rgbDarker.r}, ${rgbDarker.g}, ${rgbDarker.b}, 0.5)`
+        "--pulse-from",
+        `rgba(${rgbDarker.r}, ${rgbDarker.g}, ${rgbDarker.b}, 0.6)`
       );
 
       document.documentElement.style.setProperty(
-        '--pulse-to',
-        `rgba(${rgbLighter.r}, ${rgbLighter.g}, ${rgbLighter.b}, 0.7)`
+        "--pulse-to",
+        `rgba(${rgbLighter.r}, ${rgbLighter.g}, ${rgbLighter.b}, 0.4)`
       );
     }
 
-    if (key === 'intensity' && val !== undefined) {
-      document.documentElement.style.setProperty('--opacity', (val / 100).toFixed(2));
+    if (key === "intensity" && val !== undefined) {
+      document.documentElement.style.setProperty(
+        "--opacity",
+        (val / 100).toFixed(2)
+      );
     }
 
-    if (key === 'sizeValue' && val !== undefined) {
-      document.documentElement.style.setProperty('--size-multiplier', (val / 50).toFixed(2));
+    if (key === "size" && val !== undefined) {
+      document.documentElement.style.setProperty(
+        "--size-multiplier",
+        (val / 50).toFixed(2)
+      );
     }
   }
 
@@ -51,7 +58,7 @@ export const getVariablesFromStorage = () => {
     }
 
     // live Reacta update
-    window.addEventListener('firefly-storage', (e) => {
+    window.addEventListener("firefly-storage", (e) => {
       const { key, value } = e.detail;
       applySetting(key, value);
     });
@@ -69,7 +76,7 @@ export const getVariablesFromStorage = () => {
   });
 
   chrome.storage.onChanged.addListener((changes, namespace) => {
-    if (namespace !== 'sync') return;
+    if (namespace !== "sync") return;
 
     for (const [key, change] of Object.entries(changes)) {
       applySetting(key, change.newValue);

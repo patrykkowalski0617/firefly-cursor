@@ -1,5 +1,15 @@
 export const createFireflyCursor = () => {
-  document.body.insertAdjacentHTML('afterbegin', `<div class="fireflyCursor"></div>`);
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="fireflyCursor"></div>`
+  );
 
-  return document.querySelector(`.fireflyCursor`);
+  const isItOptionRender = document.querySelector("#firefly-cursor-root");
+  const fireflyCursor = document.querySelector(`.fireflyCursor`);
+
+  if (isItOptionRender) {
+    fireflyCursor.style.transition = "none";
+  }
+
+  return fireflyCursor;
 };
