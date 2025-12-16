@@ -3,7 +3,11 @@ import { getVariablesFromStorage } from './getVariablesFromStorage.js';
 import { mouseMove } from './mouseMove.js';
 import { click } from './click.js';
 
-const fireflyCursor = createFireflyCursor();
-getVariablesFromStorage();
-mouseMove(fireflyCursor);
-click(fireflyCursor);
+const runFireflyCursor = () => {
+  const fireflyCursor = createFireflyCursor();
+  getVariablesFromStorage();
+  mouseMove(fireflyCursor);
+  click(fireflyCursor);
+};
+
+runFireflyCursor();

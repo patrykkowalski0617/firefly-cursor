@@ -58,11 +58,11 @@ export const click = (fireflyCursor) => {
     clickVibrantColor = !!enabled;
   };
 
-  chrome.storage.sync.get(['clickVibrantColor'], (result) => {
+  chrome?.storage?.sync.get(['clickVibrantColor'], (result) => {
     applyVibrantSetting(result.clickVibrantColor);
   });
 
-  chrome.storage.onChanged.addListener((changes) => {
+  chrome?.storage?.onChanged.addListener((changes) => {
     if (changes.clickVibrantColor !== undefined) {
       applyVibrantSetting(changes.clickVibrantColor.newValue);
     }
