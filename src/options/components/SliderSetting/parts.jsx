@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   max-width: 240px;
@@ -30,5 +30,9 @@ export const Range = styled.input`
     cursor: pointer;
     margin-top: -8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  &::-webkit-slider-runnable-track {
+    height: 12px;
+    border-radius: 12px;
   }
 `;

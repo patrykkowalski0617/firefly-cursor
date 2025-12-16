@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   max-width: 240px;
   margin: 0 auto;
   padding: 12px 0;
-  display: ${({ hidden }) => (hidden ? "none" : "block")};
+  display: ${({ hidden }) => (hidden ? 'none' : 'block')};
 `;
 
 const Label = styled.label`
@@ -32,10 +32,12 @@ const Switch = styled.span`
   border-radius: 32px;
   background: linear-gradient(90deg, #ffb6c1, #a8e6cf);
   position: relative;
-  box-shadow: inset 0 2px 8px rgba(0,0,0,0.4), 0 15px 18px rgba(0,0,0,0.4);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.4),
+    0 15px 18px rgba(0, 0, 0, 0.4);
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 4px;
     left: 4px;
@@ -47,12 +49,7 @@ const Switch = styled.span`
   }
 `;
 
-export default function ToggleSetting({
-  id,
-  leftLabel,
-  rightLabel,
-  hidden,
-}) {
+export default function ToggleSetting({ id, leftLabel, rightLabel, hidden }) {
   return (
     <Wrapper hidden={hidden}>
       <Label>

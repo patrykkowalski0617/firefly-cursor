@@ -1,4 +1,4 @@
-export const click = (fireflyCursor) => {
+export const onClick = (fireflyCursor) => {
   const CLICK_DURATION_MS = 3 * 1000 + 50;
 
   let timeoutId = null;

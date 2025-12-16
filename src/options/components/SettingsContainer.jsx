@@ -1,15 +1,10 @@
-import styled from 'styled-components';
 import SliderSetting from './SliderSetting/SliderSetting';
+import SliderTemperature from './SliderSetting/SliderTemperature';
 import ToggleSetting from './ToggleSetting';
 
-const Container = styled.div`
-  height: 250px;
-  overflow: auto;
-`;
-
-export default function SettingsContainer({ temperature, setTemperature }) {
+export default function SettingsContainer({ setIntensity, setSize }) {
   return (
-    <Container>
+    <>
       <SliderSetting
         id="sizeSlider"
         label="Size"
@@ -17,7 +12,7 @@ export default function SettingsContainer({ temperature, setTemperature }) {
         max={70}
         value={50}
         gradient="linear-gradient(to right, #cfcfcf, #6587ff)"
-        onChange={(e) => null}
+        onChange={(e) => setSize(Number(e.target.value))}
       />
 
       <SliderSetting
@@ -27,18 +22,9 @@ export default function SettingsContainer({ temperature, setTemperature }) {
         max={80}
         value={50}
         gradient="linear-gradient(to right, #cfcfcf, #d29d52)"
-        onChange={(e) => null}
+        onChange={(e) => setIntensity(Number(e.target.value))}
       />
-
-      <SliderSetting
-        id="colorSlider"
-        label="Temperature"
-        min={0}
-        max={100}
-        value={temperature}
-        gradient="linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)"
-        onChange={(e) => setTemperature(Number(e.target.value))}
-      />
+      <SliderTemperature />
 
       <ToggleSetting
         id="temperatureMode"
@@ -94,6 +80,6 @@ export default function SettingsContainer({ temperature, setTemperature }) {
           </>
         }
       />
-    </Container>
+    </>
   );
 }

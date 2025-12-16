@@ -1,19 +1,18 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import pluginReact from 'eslint-plugin-react';
-import json from '@eslint/json';
-import css from '@eslint/css';
-import { defineConfig } from 'eslint/config';
+import globals from "globals";
+import pluginReact from "eslint-plugin-react";
+import json from "@eslint/json";
+import css from "@eslint/css";
+import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   // =========================
   // JavaScript / JSX
   // =========================
   {
-    files: ['**/*.{js,mjs,cjs,jsx}'],
+    files: ["**/*.{js,mjs,cjs,jsx}"],
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: {
         ...globals.browser,
         ...globals.es2021,
@@ -27,20 +26,20 @@ export default defineConfig([
   pluginReact.configs.flat.recommended,
 
   // React JSX runtime (React 17+)
-  pluginReact.configs.flat['jsx-runtime'],
+  pluginReact.configs.flat["jsx-runtime"],
 
   // =========================
   // React overrides
   // =========================
   {
-    files: ['**/*.{js,jsx}'],
+    files: ["**/*.{js,jsx}"],
     plugins: {
       react: pluginReact,
     },
     rules: {
-      'react/react-in-jsx-scope': 'off',
-      'react/jsx-uses-react': 'off',
-      'react/prop-types': 'off',
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+      "react/prop-types": "off",
     },
   },
 
@@ -48,19 +47,19 @@ export default defineConfig([
   // JSON
   // =========================
   {
-    files: ['**/*.json'],
+    files: ["**/*.json"],
     plugins: { json },
-    language: 'json/json',
-    extends: ['json/recommended'],
+    language: "json/json",
+    extends: ["json/recommended"],
   },
 
   // =========================
   // CSS
   // =========================
   {
-    files: ['**/*.css'],
+    files: ["**/*.css"],
     plugins: { css },
-    language: 'css/css',
-    extends: ['css/recommended'],
+    language: "css/css",
+    extends: ["css/recommended"],
   },
 ]);

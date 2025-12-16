@@ -1,4 +1,4 @@
-export const mouseMove = (fireflyCursor) => {
+export const onMousemove = (fireflyCursor) => {
   let currentMouseX = 0;
   let currentMouseY = 0;
   let rAF_ID = null;
@@ -9,7 +9,7 @@ export const mouseMove = (fireflyCursor) => {
     rAF_ID = null;
   };
 
-  const onMousemove = (e) => {
+  const onMousemoveHandler = (e) => {
     currentMouseY = e.clientY;
     currentMouseX = e.clientX;
     if (!isFirstMouseMoveDone) {
@@ -30,6 +30,6 @@ export const mouseMove = (fireflyCursor) => {
     }
   };
 
-  window.addEventListener('mousemove', onMousemove);
+  window.addEventListener('mousemove', onMousemoveHandler);
   document.addEventListener('fullscreenchange', onFullscreenChange);
 };
