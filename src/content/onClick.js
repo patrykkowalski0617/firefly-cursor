@@ -1,13 +1,14 @@
-export const onClick = (fireflyCursor) => {
-  const CLICK_DURATION_MS = 3 * 1000 + 50;
+import { getBreathSpeed } from "./getVariablesFromStorage.js";
 
+export const onClick = (fireflyCursor) => {
   let timeoutId = null;
   let clickVibrantColor = false;
 
   const getCalmColor = () => {
-    const highLetters = 'ABCDEF';
-    const getRandomHex = () => highLetters[Math.floor(Math.random() * highLetters.length)];
-    let color = '#';
+    const highLetters = "ABCDEF";
+    const getRandomHex = () =>
+      highLetters[Math.floor(Math.random() * highLetters.length)];
+    let color = "#";
     for (let i = 0; i < 3; i++) color += getRandomHex() + getRandomHex();
     return color;
   };
@@ -24,10 +25,10 @@ export const onClick = (fireflyCursor) => {
       const saturation = max === 0 ? 0 : (max - min) / max;
       if (lightness >= 0.3 && lightness <= 0.7 && saturation >= 0.4) break;
     } while (true);
-    return `#${r.toString(16).padStart(2, '0').toUpperCase()}${g
+    return `#${r.toString(16).padStart(2, "0").toUpperCase()}${g
       .toString(16)
-      .padStart(2, '0')
-      .toUpperCase()}${b.toString(16).padStart(2, '0').toUpperCase()}`;
+      .padStart(2, "0")
+      .toUpperCase()}${b.toString(16).padStart(2, "0").toUpperCase()}`;
   };
 
   const hexToRgbComponents = (hex) => {
@@ -40,25 +41,48 @@ export const onClick = (fireflyCursor) => {
   };
 
   const onClick = (e, cursor) => {
-    const randomHexColor = clickVibrantColor ? getVibrantColor() : getCalmColor();
+    const breathSpeed = getBreathSpeed();
+    const clickFactor = 0.3;
+    const baseDuration = 3000; // ms
+
+    const finalClickDurationMs = Math.round(
+      baseDuration / (breathSpeed * clickFactor + 1)
+    );
+
+    document.documentElement.style.setProperty(
+      "--breath-click-duration",
+      `${finalClickDurationMs}ms`
+    );
+
+    document.documentElement.style.setProperty(
+      "--breath-multiplier",
+      breathSpeed
+    );
+
+    const randomHexColor = clickVibrantColor
+      ? getVibrantColor()
+      : getCalmColor();
     const rgb = hexToRgbComponents(randomHexColor);
-    cursor.style.setProperty('--random-color-r', rgb.r);
-    cursor.style.setProperty('--random-color-g', rgb.g);
-    cursor.style.setProperty('--random-color-b', rgb.b);
-    cursor.classList.remove('click');
+    cursor.style.setProperty("--random-color-r", rgb.r);
+    cursor.style.setProperty("--random-color-g", rgb.g);
+    cursor.style.setProperty("--random-color-b", rgb.b);
+    cursor.classList.remove("click");
     clearTimeout(timeoutId);
     void cursor.offsetWidth;
-    cursor.classList.add('click');
-    timeoutId = setTimeout(() => cursor.classList.remove('click'), CLICK_DURATION_MS);
+    cursor.classList.add("click");
+    timeoutId = setTimeout(
+      () => cursor.classList.remove("click"),
+      finalClickDurationMs
+    );
   };
 
-  window.addEventListener('click', (e) => onClick(e, fireflyCursor));
+  window.addEventListener("click", (e) => onClick(e, fireflyCursor));
 
   const applyVibrantSetting = (enabled) => {
     clickVibrantColor = !!enabled;
   };
 
-  chrome?.storage?.sync.get(['clickVibrantColor'], (result) => {
+  chrome?.storage?.sync.get(["clickVibrantColor"], (result) => {
     applyVibrantSetting(result.clickVibrantColor);
   });
 

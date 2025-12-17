@@ -8,7 +8,7 @@ export const createFireflyCursor = () => {
   const fireflyCursor = document.querySelector(`.fireflyCursor`);
 
   if (isItOptionRender) {
-    fireflyCursor.style.transition = "none";
+    fireflyCursor.classList.add("itIsOptionRender");
   }
 
   return fireflyCursor;

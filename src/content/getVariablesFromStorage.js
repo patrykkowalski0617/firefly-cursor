@@ -1,10 +1,20 @@
 import { calcColor } from "./utilities";
 
+let breathSpeedValue = "1.00";
+
+export const getBreathSpeed = () => breathSpeedValue;
+export const setBreathSpeed = (val) => {
+  breathSpeedValue = val;
+};
+
 export const getVariablesFromStorage = () => {
   const defaultSettings = {
     temperature: 50,
     intensity: 50,
     size: 50,
+    microMotion: 50,
+    breathSpeed: 50,
+    followDelay: 0,
   };
 
   const hasChromeStorage =
@@ -22,12 +32,12 @@ export const getVariablesFromStorage = () => {
 
       document.documentElement.style.setProperty(
         "--pulse-from",
-        `rgba(${rgbDarker.r}, ${rgbDarker.g}, ${rgbDarker.b}, 0.6)`
+        `rgba(${rgbDarker.r}, ${rgbDarker.g}, ${rgbDarker.b}, 0.8)`
       );
 
       document.documentElement.style.setProperty(
         "--pulse-to",
-        `rgba(${rgbLighter.r}, ${rgbLighter.g}, ${rgbLighter.b}, 0.4)`
+        `rgba(${rgbLighter.r}, ${rgbLighter.g}, ${rgbLighter.b}, 0.6)`
       );
     }
 
@@ -41,6 +51,29 @@ export const getVariablesFromStorage = () => {
     if (key === "size" && val !== undefined) {
       document.documentElement.style.setProperty(
         "--size-multiplier",
+        (val / 50).toFixed(2)
+      );
+    }
+
+    if (key === "microMotion" && val !== undefined) {
+      document.documentElement.style.setProperty(
+        "--drift-multiplier",
+        (val / 50).toFixed(2)
+      );
+    }
+
+    if (key === "breathSpeed" && val !== undefined) {
+      const breathSpeed = (val / 50).toFixed(2);
+      document.documentElement.style.setProperty(
+        "--breath-multiplier",
+        breathSpeed
+      );
+      setBreathSpeed(breathSpeed);
+    }
+
+    if (key === "followDelay" && val !== undefined) {
+      document.documentElement.style.setProperty(
+        "--follow-delay-multiplier",
         (val / 50).toFixed(2)
       );
     }

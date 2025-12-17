@@ -7,9 +7,9 @@ const SliderIntensity = () => {
     <>
       <SliderTemplate
         id="intensitySlider"
-        label="Intensity"
-        min={30}
-        max={80}
+        label="Intensity / Opacity"
+        min={10}
+        max={100}
         value={intensity}
         gradient="linear-gradient(to right, #cfcfcf, #d29d52)"
         onChange={(e) => setIntensity(Number(e.target.value))}
