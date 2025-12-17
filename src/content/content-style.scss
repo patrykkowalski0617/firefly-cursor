@@ -28,7 +28,6 @@ $micro-drift-animation-base: micro-drift 10s infinite forwards linear;
       $micro-drift-animation-base;
   }
 }
-
 @keyframes breath-animation {
   from {
     box-shadow: $breath-shadow-base;
@@ -41,24 +40,12 @@ $micro-drift-animation-base: micro-drift 10s infinite forwards linear;
 
 @keyframes breath-animation-click {
   0% {
-    box-shadow: rgba(
-        var(--random-color-r),
-        var(--random-color-g),
-        var(--random-color-b),
-        0.5
-      )
-      0px 0px calc(9px * var(--size-multiplier))
-      calc(9px * var(--size-multiplier));
+    box-shadow: hsla(var(--random-pastelToVividColor), 0.5) 0px 0px
+      calc(9px * var(--size-multiplier)) calc(9px * var(--size-multiplier));
   }
   20% {
-    box-shadow: rgba(
-        var(--random-color-r),
-        var(--random-color-g),
-        var(--random-color-b),
-        0.4
-      )
-      0px 0px calc(100px * var(--size-multiplier))
-      calc(100px * var(--size-multiplier));
+    box-shadow: hsla(var(--random-pastelToVividColor), 0.4) 0px 0px
+      calc(100px * var(--size-multiplier)) calc(100px * var(--size-multiplier));
   }
   100% {
     box-shadow: $breath-shadow-base;

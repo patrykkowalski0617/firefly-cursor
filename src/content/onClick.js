@@ -1,16 +1,19 @@
-import { getBreathSpeed } from './getVariablesFromStorage.js';
+import { getVariableForJS } from "./getVariablesFromStorage.js";
 
 export const onClick = (fireflyCursor) => {
   let timeoutId = null;
   let clickVibrantColor = false;
 
-  const getCalmColor = () => {
-    const highLetters = 'ABCDEF';
-    const getRandomHex = () =>
-      highLetters[Math.floor(Math.random() * highLetters.length)];
-    let color = '#';
-    for (let i = 0; i < 3; i++) color += getRandomHex() + getRandomHex();
-    return color;
+  const getPastelToVividColor = (val, a) => {
+    const value = Math.max(0, Math.min(100, val));
+
+    let hue = Math.floor(Math.random() * 360);
+
+    const saturation = Math.round(30 + (value / 100) * 70);
+
+    const lightness = Math.round(85 - (value / 100) * 35);
+
+    return `${hue}, ${saturation}%, ${lightness}%`;
   };
 
   const hexToRgbComponents = (hex) => {
@@ -23,7 +26,10 @@ export const onClick = (fireflyCursor) => {
   };
 
   const onClick = (e, cursor) => {
-    const breathSpeed = getBreathSpeed();
+    const breathSpeed = getVariableForJS("breathSpeed");
+    const clickColorIntensity = getVariableForJS("clickColorIntensity");
+    console.log(clickColorIntensity);
+
     const clickFactor = 0.3;
     const baseDuration = 3000; // ms
 
@@ -32,37 +38,36 @@ export const onClick = (fireflyCursor) => {
     );
 
     document.documentElement.style.setProperty(
-      '--breath-click-duration',
+      "--breath-click-duration",
       `${finalClickDurationMs}ms`
     );
 
     document.documentElement.style.setProperty(
-      '--breath-multiplier',
+      "--breath-multiplier",
       breathSpeed
     );
 
-    const randomHexColor = getCalmColor();
-    const rgb = hexToRgbComponents(randomHexColor);
-    cursor.style.setProperty('--random-color-r', rgb.r);
-    cursor.style.setProperty('--random-color-g', rgb.g);
-    cursor.style.setProperty('--random-color-b', rgb.b);
-    cursor.classList.remove('click');
+    const pastelToVividColor = getPastelToVividColor(clickColorIntensity);
+    cursor.style.setProperty("--random-pastelToVividColor", pastelToVividColor);
+    console.log("pastelToVividColor", pastelToVividColor);
+
+    cursor.classList.remove("click");
     clearTimeout(timeoutId);
     void cursor.offsetWidth;
-    cursor.classList.add('click');
+    cursor.classList.add("click");
     timeoutId = setTimeout(
-      () => cursor.classList.remove('click'),
+      () => cursor.classList.remove("click"),
       finalClickDurationMs
     );
   };
 
-  window.addEventListener('click', (e) => onClick(e, fireflyCursor));
+  window.addEventListener("click", (e) => onClick(e, fireflyCursor));
 
   const applyVibrantSetting = (enabled) => {
     clickVibrantColor = !!enabled;
   };
 
-  chrome?.storage?.sync.get(['clickVibrantColor'], (result) => {
+  chrome?.storage?.sync.get(["clickVibrantColor"], (result) => {
     applyVibrantSetting(result.clickVibrantColor);
   });
 
