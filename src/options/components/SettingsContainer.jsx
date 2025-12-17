@@ -1,10 +1,11 @@
-import SliderSize from "./Sliders/SliderSize";
-import SliderIntensity from "./Sliders/SliderIntensity";
-import SliderTemperature from "./Sliders/SliderTemperature";
-import ToggleSetting from "./ToggleSetting";
-import SliderMicroMotion from "./Sliders/SliderMicroMotion";
-import SliderBreathSpeed from "./Sliders/SliderBreathSpeed";
-import SliderfollowDelay from "./Sliders/SliderfollowDelay";
+import SliderSize from './Sliders/SliderSize';
+import SliderIntensity from './Sliders/SliderIntensity';
+import SliderTemperature from './Sliders/SliderTemperature';
+import ToggleSetting from './ToggleSetting';
+import SliderMicroMotion from './Sliders/SliderMicroMotion';
+import SliderBreathSpeed from './Sliders/SliderBreathSpeed';
+import SliderfollowDelay from './Sliders/SliderfollowDelay';
+import SliderClickIntensity from './Sliders/SliderClickIntensity';
 
 export default function SettingsContainer() {
   return (
@@ -17,46 +18,11 @@ export default function SettingsContainer() {
 
       <SliderIntensity />
 
+      <SliderClickIntensity />
+
       <SliderTemperature />
 
       <SliderfollowDelay />
-
-      <ToggleSetting
-        id="temperatureMode"
-        hidden
-        leftLabel={
-          <>
-            Temperature
-            <br />
-            Base on Setting
-          </>
-        }
-        rightLabel={
-          <>
-            Temperature
-            <br />
-            Base on Time
-          </>
-        }
-      />
-
-      <ToggleSetting
-        id="vibrantClickColor"
-        leftLabel={
-          <>
-            Calm
-            <br />
-            Click Color
-          </>
-        }
-        rightLabel={
-          <>
-            Vibrant
-            <br />
-            Click Color
-          </>
-        }
-      />
 
       <ToggleSetting
         id="previewLightMode"

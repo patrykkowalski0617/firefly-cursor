@@ -1,6 +1,6 @@
-import { calcColor } from "./utilities";
+import { calcColor } from './utilities';
 
-let breathSpeedValue = "1.00";
+let breathSpeedValue = '1';
 
 export const getBreathSpeed = () => breathSpeedValue;
 export const setBreathSpeed = (val) => {
@@ -18,7 +18,7 @@ export const getVariablesFromStorage = () => {
   };
 
   const hasChromeStorage =
-    typeof chrome !== "undefined" && chrome.storage && chrome.storage.sync;
+    typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync;
 
   function applySetting(key, value) {
     let val = value;
@@ -27,53 +27,53 @@ export const getVariablesFromStorage = () => {
       val = defaultSettings[key];
     }
 
-    if (key === "temperature" && val !== undefined) {
+    if (key === 'temperature' && val !== undefined) {
       const { rgbDarker, rgbLighter } = calcColor(val);
 
       document.documentElement.style.setProperty(
-        "--pulse-from",
+        '--pulse-from',
         `rgba(${rgbDarker.r}, ${rgbDarker.g}, ${rgbDarker.b}, 0.8)`
       );
 
       document.documentElement.style.setProperty(
-        "--pulse-to",
+        '--pulse-to',
         `rgba(${rgbLighter.r}, ${rgbLighter.g}, ${rgbLighter.b}, 0.6)`
       );
     }
 
-    if (key === "intensity" && val !== undefined) {
+    if (key === 'intensity' && val !== undefined) {
       document.documentElement.style.setProperty(
-        "--opacity",
+        '--opacity',
         (val / 100).toFixed(2)
       );
     }
 
-    if (key === "size" && val !== undefined) {
+    if (key === 'size' && val !== undefined) {
       document.documentElement.style.setProperty(
-        "--size-multiplier",
+        '--size-multiplier',
         (val / 50).toFixed(2)
       );
     }
 
-    if (key === "microMotion" && val !== undefined) {
+    if (key === 'microMotion' && val !== undefined) {
       document.documentElement.style.setProperty(
-        "--drift-multiplier",
+        '--drift-multiplier',
         (val / 50).toFixed(2)
       );
     }
 
-    if (key === "breathSpeed" && val !== undefined) {
+    if (key === 'breathSpeed' && val !== undefined) {
       const breathSpeed = (val / 50).toFixed(2);
       document.documentElement.style.setProperty(
-        "--breath-multiplier",
+        '--breath-multiplier',
         breathSpeed
       );
       setBreathSpeed(breathSpeed);
     }
 
-    if (key === "followDelay" && val !== undefined) {
+    if (key === 'followDelay' && val !== undefined) {
       document.documentElement.style.setProperty(
-        "--follow-delay-multiplier",
+        '--follow-delay-multiplier',
         (val / 50).toFixed(2)
       );
     }
@@ -91,7 +91,7 @@ export const getVariablesFromStorage = () => {
     }
 
     // live Reacta update
-    window.addEventListener("firefly-storage", (e) => {
+    window.addEventListener('firefly-storage', (e) => {
       const { key, value } = e.detail;
       applySetting(key, value);
     });
@@ -109,7 +109,7 @@ export const getVariablesFromStorage = () => {
   });
 
   chrome.storage.onChanged.addListener((changes, namespace) => {
-    if (namespace !== "sync") return;
+    if (namespace !== 'sync') return;
 
     for (const [key, change] of Object.entries(changes)) {
       applySetting(key, change.newValue);
