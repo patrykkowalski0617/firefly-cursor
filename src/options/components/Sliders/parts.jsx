@@ -23,6 +23,7 @@ export const Range = styled.input`
   width: 100%;
   outline: none;
   padding: 4px 0;
+  transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
   background: ${({
     $isInverted,
     $isWarm,
@@ -43,6 +44,7 @@ export const Range = styled.input`
     cursor: pointer;
     margin-top: -8px;
     box-shadow: var(--thumb-external-shadow);
+    transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
   }
 
   &::-webkit-slider-runnable-track {
