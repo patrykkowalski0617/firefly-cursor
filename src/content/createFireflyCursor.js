@@ -1,7 +1,7 @@
 export const createFireflyCursor = () => {
   document.body.insertAdjacentHTML(
     "afterbegin",
-    `<div class="fireflyCursor"></div>`
+    `<div id="fireflyCursor"></div>`
   );
 
   const isItOptionRender = document.querySelector("#firefly-cursor-root");
