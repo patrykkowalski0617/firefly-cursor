@@ -8,11 +8,10 @@ export default function SliderTemplate({
   min,
   max,
   value,
-  gradient,
   onChange,
-  isWarm,
-  isInverted,
-  customGradient,
+  $isWarm,
+  $isInverted,
+  $customGradient,
 }) {
   const internalRef = useRef(null);
   useMouseLightShadow(internalRef, true);
@@ -24,6 +23,8 @@ export default function SliderTemplate({
     "--thumb-external-shadow"
   );
 
+  const $normalizedValue = Number(((value - min) / (max - min)).toFixed(2));
+
   return (
     <Label>
       <LabelTxt>{label}</LabelTxt>
@@ -34,11 +35,11 @@ export default function SliderTemplate({
         max={max}
         value={value}
         onChange={onChange}
-        gradient={gradient}
         ref={internalRef}
-        customGradient={customGradient}
-        isWarm={isWarm}
-        isInverted={isInverted}
+        $customGradient={$customGradient}
+        $isWarm={$isWarm}
+        $isInverted={$isInverted}
+        $normalizedValue={$normalizedValue}
       />
     </Label>
   );

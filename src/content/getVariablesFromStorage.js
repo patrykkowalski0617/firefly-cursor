@@ -1,10 +1,12 @@
 import { calcColor } from "./utilities";
 // import * as defaultSettings from "../shared/defaultSettings";
-// this variable is temporarily in two places. Here and in src/defaultSettings
+// this variable is temporarily in two places.
+// 1. src/defaultSettings
+// 2. src/content/getVariablesFromStorage.js inside the file
 const defaultSettings = {
   temperature: 50,
-  transparency: 50,
-  size: 50,
+  opacity: 30,
+  size: 30,
   microMotion: 25,
   breathSpeed: 50,
   followDelay: 0,
@@ -50,7 +52,7 @@ export const getVariablesFromStorage = () => {
       );
     }
 
-    if (key === "transparency") {
+    if (key === "opacity") {
       document.documentElement.style.setProperty(
         "--opacity",
         (val / 100).toFixed(2)

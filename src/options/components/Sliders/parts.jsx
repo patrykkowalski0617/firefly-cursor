@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { thumbAppearance } from "../parts";
+import { inputStyle, thumbAppearance } from "../parts";
 
 export const Label = styled.label`
   display: block;
@@ -10,27 +10,36 @@ export const LabelTxt = styled.div`
   margin-bottom: 5px;
 `;
 
+// Funkcja pomocnicza do mieszania kolorów (HEX)
+// val: 0-1, color: kolor docelowy, target: kolor do którego dążymy (#cfcfcf)
+const interpolateColor = (val, color, target = "#cfcfcf") => {
+  // Jeśli nie chcesz bawić się w logikę JS, możesz użyć CSS color-mix (zalecane)
+  return `color-mix(in srgb, ${color} ${val * 100}%, ${target})`;
+};
+
 export const Range = styled.input`
+  ${inputStyle}
   -webkit-appearance: none;
   width: 100%;
-  height: 32px;
-  border-radius: 20px;
   outline: none;
-  padding: 4px;
-  overflow: hidden;
-  background: ${({ isInverted, isWarm, customGradient }) => {
-    const colors = isWarm ? "#e74c3c, #cfcfcf" : "#cfcfcf, #4a90e2";
-
-    const direction = isInverted ? "to left" : "to right";
-    console.log(customGradient);
-
-    return customGradient
-      ? customGradient
+  padding: 4px 0;
+  background: ${({
+    $isInverted,
+    $isWarm,
+    $customGradient,
+    $normalizedValue,
+  }) => {
+    const colors = $isWarm
+      ? `${interpolateColor($normalizedValue, "#e74c3c")}, #cfcfcf`
+      : `${interpolateColor($normalizedValue, "#4a90e2")}, #cfcfcf`;
+    const direction = $isInverted ? "to right" : "to left";
+    return $customGradient
+      ? $customGradient
       : `linear-gradient(${direction}, ${colors})`;
   }};
   &::-webkit-slider-thumb {
-    -webkit-appearance: none;
     ${thumbAppearance}
+    -webkit-appearance: none;
     cursor: pointer;
     margin-top: -8px;
     box-shadow: var(--thumb-external-shadow);

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { thumbAppearance } from "../parts";
+import { inputStyle, thumbAppearance } from "../parts";
 
 export const Label = styled.label`
   display: flex;
@@ -27,20 +27,17 @@ export const Input = styled.input`
 `;
 
 export const Switch = styled.span`
+  ${inputStyle}
   width: 64px;
-  height: 32px;
-  border-radius: 32px;
-  background: linear-gradient(90deg, #ffffff, #4a90e2);
   position: relative;
   display: inline-block;
-  overflow: hidden;
   &::before {
+    ${thumbAppearance}
     content: "";
     position: absolute;
     transition: transform 0.3s ease;
-    top: 4px;
-    left: 4px;
-    ${thumbAppearance}
+    top: 0px;
+    left: 0px;
     box-shadow: var(--switch-thumb-shadow);
   }
 `;

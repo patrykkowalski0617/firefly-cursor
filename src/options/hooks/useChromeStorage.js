@@ -12,6 +12,21 @@ export function useChromeStorage(key, defaultValue) {
   const timeoutRef = useRef(null);
 
   // =====================
+  // LISTEN (Sync across components)
+  // =====================
+  useEffect(() => {
+    const handleStorageChange = (e) => {
+      if (e.detail && e.detail.key === key) {
+        setValue(e.detail.value);
+      }
+    };
+
+    window.addEventListener("firefly-storage", handleStorageChange);
+    return () =>
+      window.removeEventListener("firefly-storage", handleStorageChange);
+  }, [key]);
+
+  // =====================
   // INIT
   // =====================
   useEffect(() => {
@@ -65,6 +80,13 @@ export function useChromeStorage(key, defaultValue) {
     }, 800);
   };
 
+  // =====================
+  // RESET
+  // =====================
+  const reset = () => {
+    update(defaultValue);
+  };
+
   // Cleanup: clear timeout when component unmounts
   useEffect(() => {
     return () => {
@@ -74,5 +96,5 @@ export function useChromeStorage(key, defaultValue) {
     };
   }, []);
 
-  return [value, update];
+  return [value, update, reset];
 }

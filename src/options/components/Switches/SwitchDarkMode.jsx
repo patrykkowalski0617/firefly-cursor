@@ -1,8 +1,8 @@
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 import SwitchTemplate from "./SwitchTemplate";
-import defaultSettings from "../../../shared/defaultSettings";
+import { defaultSettings } from "../../defaultSettings";
 
-const DarkModeSwitch = () => {
+const DefaultSettingsButton = () => {
   const [isDarkMode, setIsDarkMode] = useChromeStorage(
     "isDarkMode",
     defaultSettings.isDarkMode
@@ -41,4 +41,4 @@ const DarkModeSwitch = () => {
   );
 };
 
-export default DarkModeSwitch;
+export default DefaultSettingsButton;

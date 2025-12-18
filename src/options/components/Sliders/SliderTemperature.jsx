@@ -1,6 +1,6 @@
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 import SliderTemplate from "./SliderTemplate";
-import defaultSettings from "../../../shared/defaultSettings";
+import { defaultSettings } from "../../defaultSettings";
 
 const SliderTemperature = () => {
   const [temperature, setTemperature] = useChromeStorage(
@@ -14,7 +14,7 @@ const SliderTemperature = () => {
       min={0}
       max={100}
       value={temperature}
-      customGradient="linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)"
+      $customGradient="linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)"
       onChange={(e) => setTemperature(Number(e.target.value))}
     />
   );

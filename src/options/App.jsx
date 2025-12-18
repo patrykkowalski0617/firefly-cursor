@@ -13,8 +13,7 @@ const rootStyles = css`
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 11px;
-    background: #232323;
-    color: #e0e0e0;
+
     margin: 0;
     padding: 15px;
     display: flex;
@@ -25,10 +24,35 @@ const rootStyles = css`
       background,
       color 0.3s;
   }
+
   body.light-mode {
+    --input-border-color: #4e4e4e;
+    --thumb-gradient: radial-gradient(
+      circle at 50% 50%,
+      #d8d8d8 0%,
+      #858585 35%,
+      #464646 70%,
+      #434343 100%
+    );
+    --settings-opacity: 0.95;
     background: #cacaca;
-    color: #101010;
+    color: #000;
   }
+
+  body:not(.light-mode) {
+    --input-border-color: #cacaca;
+    --thumb-gradient: radial-gradient(
+      circle at 50% 50%,
+      #ececec 0%,
+      #b5b5b5 35%,
+      #434343 70%,
+      #181818 100%
+    );
+    --settings-opacity: 1;
+    background: #232323;
+    color: #e0e0e0;
+  }
+
   #firefly-cursor-root {
     width: 100%;
   }

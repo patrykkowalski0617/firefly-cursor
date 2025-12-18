@@ -1,6 +1,6 @@
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 import SliderTemplate from "./SliderTemplate";
-import defaultSettings from "../../../shared/defaultSettings";
+import { defaultSettings } from "../../defaultSettings";
 
 const SliderClickColorIntensity = () => {
   const [clickColorIntensity, setClickColorIntensity] = useChromeStorage(
@@ -13,8 +13,7 @@ const SliderClickColorIntensity = () => {
       label="Click Color Intensity"
       min={0}
       max={100}
-      isInverted
-      isWarm
+      $isWarm
       value={clickColorIntensity}
       onChange={(e) => setClickColorIntensity(Number(e.target.value))}
     />
