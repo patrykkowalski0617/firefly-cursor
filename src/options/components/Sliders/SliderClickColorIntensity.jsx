@@ -5,7 +5,7 @@ import { defaultSettings } from "../../defaultSettings";
 const SliderClickColorIntensity = () => {
   const [clickColorIntensity, setClickColorIntensity] = useChromeStorage(
     "clickColorIntensity",
-    defaultSettings.clickColorIntensity
+    defaultSettings.darkMode.clickColorIntensity
   );
   return (
     <SliderTemplate

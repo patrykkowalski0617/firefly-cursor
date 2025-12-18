@@ -5,9 +5,9 @@ import SliderMicroMotion from "./Sliders/SliderMicroMotion";
 import SliderBreathSpeed from "./Sliders/SliderBreathSpeed";
 import SliderfollowDelay from "./Sliders/SliderfollowDelay";
 import SliderClickColorIntensity from "./Sliders/SliderClickColorIntensity";
-import SwitchDarkMode from "./Switches/SwitchDarkMode";
 import { SettingsContainerWrapper, Wrapper } from "./parts";
 import ButtonDefaultSettings from "./Buttons/ButtonDefaultSettings";
+import ButtonDefaultSettings_lightMode from "./Buttons/ButtonDefaultSettings_lightMode";
 
 export default function SettingsContainer() {
   return (
@@ -34,10 +34,10 @@ export default function SettingsContainer() {
         <SliderfollowDelay />
       </Wrapper>
       <Wrapper>
-        <SwitchDarkMode />
+        <ButtonDefaultSettings />
       </Wrapper>
       <Wrapper>
-        <ButtonDefaultSettings />
+        <ButtonDefaultSettings_lightMode />
       </Wrapper>
     </SettingsContainerWrapper>
   );

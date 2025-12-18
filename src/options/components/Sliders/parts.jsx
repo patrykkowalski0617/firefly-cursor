@@ -8,6 +8,8 @@ export const Label = styled.label`
 
 export const LabelTxt = styled.div`
   margin-bottom: 5px;
+  height: 15px;
+  font-size: 12px;
 `;
 
 // Funkcja pomocnicza do mieszania kolorów (HEX)

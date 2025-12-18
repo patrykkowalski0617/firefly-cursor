@@ -10,6 +10,8 @@ export const Button = styled.button`
   position: relative;
   display: inline-block;
   transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
+  margin-top: 20px;
+  font-size: 12px;
   &::before {
     background: linear-gradient(90deg, #f39c12, #e74c3c);
     content: "";

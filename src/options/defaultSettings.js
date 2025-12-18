@@ -3,12 +3,24 @@
 // 2. src/content/getVariablesFromStorage.js inside the file
 
 export const defaultSettings = {
-  temperature: 50,
-  opacity: 30,
-  size: 30,
-  microMotion: 25,
-  breathSpeed: 50,
-  followDelay: 0,
-  clickColorIntensity: 50,
-  isDarkMode: true,
+  darkMode: {
+    temperature: 50,
+    opacity: 30,
+    size: 30,
+    microMotion: 25,
+    breathSpeed: 50,
+    followDelay: 0,
+    clickColorIntensity: 50,
+    isDarkMode: true,
+  },
+  lightMode: {
+    temperature: 5,
+    opacity: 90,
+    size: 30,
+    microMotion: 25,
+    breathSpeed: 50,
+    followDelay: 0,
+    clickColorIntensity: 100,
+    isDarkMode: false,
+  },
 };

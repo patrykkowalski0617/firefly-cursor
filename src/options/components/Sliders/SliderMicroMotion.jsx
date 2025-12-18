@@ -5,7 +5,7 @@ import { defaultSettings } from "../../defaultSettings";
 const SliderMicroMotion = () => {
   const [microMotion, setMicroMotion] = useChromeStorage(
     "microMotion",
-    defaultSettings.microMotion
+    defaultSettings.darkMode.microMotion
   );
   return (
     <SliderTemplate

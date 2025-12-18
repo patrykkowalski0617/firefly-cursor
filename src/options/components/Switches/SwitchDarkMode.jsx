@@ -5,7 +5,7 @@ import { defaultSettings } from "../../defaultSettings";
 const DefaultSettingsButton = () => {
   const [isDarkMode, setIsDarkMode] = useChromeStorage(
     "isDarkMode",
-    defaultSettings.isDarkMode
+    defaultSettings.darkMode.isDarkMode
   );
 
   const handleToggle = (e) => {

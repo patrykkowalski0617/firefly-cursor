@@ -4,14 +4,26 @@ import { calcColor } from "./utilities";
 // 1. src/defaultSettings
 // 2. src/content/getVariablesFromStorage.js inside the file
 const defaultSettings = {
-  temperature: 50,
-  opacity: 30,
-  size: 30,
-  microMotion: 25,
-  breathSpeed: 50,
-  followDelay: 0,
-  clickColorIntensity: 50,
-  isDarkMode: true,
+  darkMode: {
+    temperature: 50,
+    opacity: 30,
+    size: 30,
+    microMotion: 25,
+    breathSpeed: 50,
+    followDelay: 0,
+    clickColorIntensity: 50,
+    isDarkMode: true,
+  },
+  lightMode: {
+    temperature: 5,
+    opacity: 90,
+    size: 30,
+    microMotion: 25,
+    breathSpeed: 50,
+    followDelay: 0,
+    clickColorIntensity: 100,
+    isDarkMode: false,
+  },
 };
 
 const variableForJS = {
@@ -35,7 +47,7 @@ export const getVariablesFromStorage = () => {
     let val = value;
 
     if (val === undefined) {
-      val = defaultSettings[key];
+      val = defaultSettings.darkMode[key];
     }
 
     if (key === "temperature") {
@@ -102,9 +114,10 @@ export const getVariablesFromStorage = () => {
   // DEV (localStorage)
   // =====================
   if (!hasChromeStorage) {
-    for (const key of Object.keys(defaultSettings)) {
+    for (const key of Object.keys(defaultSettings.darkMode)) {
       const stored = localStorage.getItem(key);
-      const value = stored !== null ? JSON.parse(stored) : defaultSettings[key];
+      const value =
+        stored !== null ? JSON.parse(stored) : defaultSettings.darkMode[key];
 
       applySetting(key, value);
     }
@@ -121,9 +134,10 @@ export const getVariablesFromStorage = () => {
   // =====================
   // BUILD (chrome.storage)
   // =====================
-  chrome.storage.sync.get(Object.keys(defaultSettings), (data) => {
-    for (const key of Object.keys(defaultSettings)) {
-      const value = data[key] !== undefined ? data[key] : defaultSettings[key];
+  chrome.storage.sync.get(Object.keys(defaultSettings.darkMode), (data) => {
+    for (const key of Object.keys(defaultSettings.darkMode)) {
+      const value =
+        data[key] !== undefined ? data[key] : defaultSettings.darkMode[key];
       applySetting(key, value);
     }
   });
@@ -140,7 +154,7 @@ export const getVariablesFromStorage = () => {
   // Key fix: immediate reaction to changes from options/popup even with debounce
   window.addEventListener("firefly-storage", (e) => {
     const { key, value } = e.detail;
-    if (key in defaultSettings) {
+    if (key in defaultSettings.darkMode) {
       applySetting(key, value);
     }
   });

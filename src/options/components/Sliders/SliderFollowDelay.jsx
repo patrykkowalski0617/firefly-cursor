@@ -5,7 +5,7 @@ import { defaultSettings } from "../../defaultSettings";
 const SliderfollowDelay = () => {
   const [followDelay, setfollowDelay] = useChromeStorage(
     "followDelay",
-    defaultSettings.followDelay
+    defaultSettings.darkMode.followDelay
   );
   document.documentElement.style.setProperty(
     "--follow-delay-multiplier",
