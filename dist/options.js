@@ -37,6 +37,7 @@ Error generating stack: `+a.message+`
   width: 100%;
   outline: none;
   padding: 4px 0;
+  transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
   background: ${({$isInverted:i,$isWarm:f,$customGradient:o,$normalizedValue:r})=>{const v=f?`${ih(r,"#e74c3c")}, #cfcfcf`:`${ih(r,"#4a90e2")}, #cfcfcf`;return o||`linear-gradient(${i?"to right":"to left"}, ${v})`}};
   &::-webkit-slider-thumb {
     ${Yh}
@@ -44,13 +45,14 @@ Error generating stack: `+a.message+`
     cursor: pointer;
     margin-top: -8px;
     box-shadow: var(--thumb-external-shadow);
+    transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
   }
 
   &::-webkit-slider-runnable-track {
     height: 8px;
     border-radius: 8px;
   }
-`;function da({id:i,label:f,min:o,max:r,value:v,onChange:E,$isWarm:U,$isInverted:B,$customGradient:_}){const p=pl.useRef(null);un(p,!0),un(p,!1,{maxOffset:5,maxBlur:2},"--thumb-external-shadow");const H=Number(((v-o)/(r-o)).toFixed(2));return L.jsxs(_1,{children:[L.jsx(O1,{children:f}),L.jsx(M1,{type:"range",id:i,min:o,max:r,value:v,onChange:E,ref:p,$customGradient:_,$isWarm:U,$isInverted:B,$normalizedValue:H})]})}const ye={temperature:50,opacity:30,size:30,microMotion:25,breathSpeed:50,followDelay:0,clickColorIntensity:50,isDarkMode:!0},D1=()=>{const[i,f]=Le("size",ye.size);return L.jsx(da,{id:"sizeSlider",label:"Size",min:20,max:70,value:i,gradient:"linear-gradient(to right, #cfcfcf, #4a90e2)",onChange:o=>f(Number(o.target.value))})},U1=()=>{const[i,f]=Le("opacity",ye.opacity),o=15,r=100;return L.jsx(da,{id:"opacitySlider",label:"Opacity",min:o,max:r,value:r-i+o,$isWarm:!0,onChange:v=>{const E=Number(v.target.value);f(r-E+o)}})},C1=()=>{const[i,f]=Le("temperature",ye.temperature);return L.jsx(da,{id:"colorSlider",label:"Temperature",min:0,max:100,value:i,$customGradient:"linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)",onChange:o=>f(Number(o.target.value))})},N1=()=>{const[i,f]=Le("microMotion",ye.microMotion);return L.jsx(da,{id:"microMotion",label:"Micro Motion Range",min:0,max:50,value:i,onChange:o=>f(Number(o.target.value))})},R1=()=>{const[i,f]=Le("breathSpeed",ye.breathSpeed);return L.jsx(da,{id:"breathSpeed",label:"Breath Speed",min:10,max:200,value:i,onChange:o=>f(Number(o.target.value))})},x1=()=>{const[i,f]=Le("followDelay",ye.followDelay);return L.jsx(da,{id:"followDelay",label:"Follow Cursor Delay",min:0,max:30,value:i,onChange:o=>f(Number(o.target.value))})},H1=()=>{const[i,f]=Le("clickColorIntensity",ye.clickColorIntensity);return L.jsx(da,{id:"clickColorIntensity",label:"Click Color Intensity",min:0,max:100,$isWarm:!0,value:i,onChange:o=>f(Number(o.target.value))})},B1=xl.label`
+`;function da({id:i,label:f,min:o,max:r,value:v,onChange:E,$isWarm:U,$isInverted:B,$customGradient:_}){const p=pl.useRef(null);un(p,!0),un(p,!1,{maxOffset:5,maxBlur:2},"--thumb-external-shadow");const H=Number(((v-o)/(r-o)).toFixed(2));return L.jsxs(_1,{children:[L.jsx(O1,{children:f}),L.jsx(M1,{type:"range",id:i,min:o,max:r,value:v,onChange:E,ref:p,$customGradient:_,$isWarm:U,$isInverted:B,$normalizedValue:H})]})}const ye={temperature:50,opacity:30,size:30,microMotion:25,breathSpeed:50,followDelay:0,clickColorIntensity:50,isDarkMode:!0},D1=()=>{const[i,f]=Le("size",ye.size);return L.jsx(da,{id:"sizeSlider",label:"Size",min:20,max:70,value:i,gradient:"linear-gradient(to right, #cfcfcf, #4a90e2)",onChange:o=>f(Number(o.target.value))})},U1=()=>{const[i,f]=Le("opacity",ye.opacity),o=15,r=100;return L.jsx(da,{id:"opacitySlider",label:"Opacity",min:o,max:r,value:r-i+o,$isWarm:!0,onChange:v=>{const E=Number(v.target.value);f(r-E+o)}})},C1=()=>{const[i,f]=Le("temperature",ye.temperature);return L.jsx(da,{id:"colorSlider",label:"Temperature",min:0,max:100,value:i,$customGradient:"linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)",onChange:o=>f(Number(o.target.value))})},N1=()=>{const[i,f]=Le("microMotion",ye.microMotion);return L.jsx(da,{id:"microMotion",label:"Micro Motion Range",min:0,max:50,value:i,onChange:o=>f(Number(o.target.value))})},R1=()=>{const[i,f]=Le("breathSpeed",ye.breathSpeed);return L.jsx(da,{id:"breathSpeed",label:"Breath Speed",min:10,max:200,value:i,onChange:o=>f(Number(o.target.value))})},x1=()=>{const[i,f]=Le("followDelay",ye.followDelay);return document.documentElement.style.setProperty("--follow-delay-multiplier",(i/50).toFixed(2)),L.jsx(da,{id:"followDelay",label:"Follow Cursor Delay",min:0,max:30,value:i,onChange:o=>f(Number(o.target.value))})},H1=()=>{const[i,f]=Le("clickColorIntensity",ye.clickColorIntensity);return L.jsx(da,{id:"clickColorIntensity",label:"Click Color Intensity",min:0,max:100,$isWarm:!0,value:i,onChange:o=>f(Number(o.target.value))})},B1=xl.label`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,6 +76,7 @@ Error generating stack: `+a.message+`
   width: 64px;
   position: relative;
   display: inline-block;
+  transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
   &::before {
     ${Yh}
     content: "";
@@ -82,6 +85,7 @@ Error generating stack: `+a.message+`
     top: 0px;
     left: 0px;
     box-shadow: var(--switch-thumb-shadow);
+    transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
   }
 `,Y1=({id:i,leftLabel:f,rightLabel:o,checked:r,onChange:v})=>{const E=pl.useRef(null);return un(E,!0),un(E,!1,{maxOffset:4,maxBlur:2},"--switch-thumb-shadow"),L.jsxs(B1,{children:[L.jsx(ch,{className:"label-left",children:f}),L.jsx(j1,{type:"checkbox",id:i,checked:r,onChange:v}),L.jsx(q1,{ref:E}),L.jsx(ch,{className:"label-right",children:o})]})},G1=()=>{const[i,f]=Le("isDarkMode",ye.isDarkMode),o=r=>{f(r.target.checked)};return i?document.body.classList.remove("light-mode"):document.body.classList.add("light-mode"),L.jsx(Y1,{id:"previewLightMode",leftLabel:L.jsxs(L.Fragment,{children:["Light mode",L.jsx("br",{}),"preview"]}),rightLabel:L.jsxs(L.Fragment,{children:["Dark mode",L.jsx("br",{}),"preview"]}),checked:i,onChange:o})},X1=xl.span`
   position: relative;
@@ -90,6 +94,7 @@ Error generating stack: `+a.message+`
   ${Hs}
   position: relative;
   display: inline-block;
+  transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
   &::before {
     background: linear-gradient(90deg, #f39c12, #e74c3c);
     content: "";
