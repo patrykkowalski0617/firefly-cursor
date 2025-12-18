@@ -7,6 +7,10 @@ const SliderfollowDelay = () => {
     "followDelay",
     defaultSettings.followDelay
   );
+  document.documentElement.style.setProperty(
+    "--follow-delay-multiplier",
+    (followDelay / 50).toFixed(2)
+  );
   return (
     <SliderTemplate
       id="followDelay"
