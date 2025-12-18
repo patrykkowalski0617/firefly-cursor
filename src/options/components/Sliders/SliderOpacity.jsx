@@ -16,7 +16,7 @@ const SliderOpacity = () => {
       min={min}
       max={max}
       value={max - opacity + min}
-      isWarm
+      $isWarm
       onChange={(e) => {
         const sliderValue = Number(e.target.value);
         setOpacity(max - sliderValue + min);

@@ -23,13 +23,18 @@ export const Range = styled.input`
   width: 100%;
   outline: none;
   padding: 4px 0;
-  background: ${({ isInverted, isWarm, customGradient, normalizedValue }) => {
-    const colors = isWarm
-      ? `${interpolateColor(normalizedValue, "#e74c3c")}, #cfcfcf`
-      : `${interpolateColor(normalizedValue, "#4a90e2")}, #cfcfcf`;
-    const direction = isInverted ? "to right" : "to left";
-    return customGradient
-      ? customGradient
+  background: ${({
+    $isInverted,
+    $isWarm,
+    $customGradient,
+    $normalizedValue,
+  }) => {
+    const colors = $isWarm
+      ? `${interpolateColor($normalizedValue, "#e74c3c")}, #cfcfcf`
+      : `${interpolateColor($normalizedValue, "#4a90e2")}, #cfcfcf`;
+    const direction = $isInverted ? "to right" : "to left";
+    return $customGradient
+      ? $customGradient
       : `linear-gradient(${direction}, ${colors})`;
   }};
   &::-webkit-slider-thumb {

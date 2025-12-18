@@ -13,7 +13,7 @@ const SliderClickColorIntensity = () => {
       label="Click Color Intensity"
       min={0}
       max={100}
-      isWarm
+      $isWarm
       value={clickColorIntensity}
       onChange={(e) => setClickColorIntensity(Number(e.target.value))}
     />
