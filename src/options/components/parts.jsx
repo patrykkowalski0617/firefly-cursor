@@ -7,16 +7,23 @@ export const Wrapper = styled.div`
   height: 70px;
 `;
 
+export const SettingsContainerWrapper = styled.div`
+  opacity: var(--settings-opacity);
+`;
+
 export const thumbAppearance = css`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    #888888 0%,
-    #444444 35%,
-    #1a1a1a 70%,
-    #050505 100%
-  );
+  background: var(--thumb-gradient);
   opacity: 0.95;
+`;
+
+export const inputStyle = css`
+  border: 4px solid var(--input-border-color);
+  width: 100%;
+  height: 30px;
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
 `;

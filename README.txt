@@ -22,7 +22,7 @@ The extension includes a React-powered options UI (`options.html`) where you can
 | **Size** | Adjusts the radius of the glow around the cursor. |
 | **Micro Motion Range** | Controls how far the "firefly" drifts from the actual pointer position. |
 | **Breath Speed** | Changes the frequency of the pulse animation. |
-| **Transparency** | Sets the opacity level of the effect. |
+| **Opacity** | Sets the opacity level of the effect. |
 | **Click Color Intensity** | Determines how vivid the colors become during a click event. |
 | **Temperature** | Shifts the color palette (from cold blues into white to warm embers/reds). |
 | **Follow Cursor Delay** | Adds a slight physics-based lag (inertia) for a more organic feel. |

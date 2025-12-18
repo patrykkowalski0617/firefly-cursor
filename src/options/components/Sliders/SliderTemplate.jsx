@@ -24,6 +24,8 @@ export default function SliderTemplate({
     "--thumb-external-shadow"
   );
 
+  const normalizedValue = Number(((value - min) / (max - min)).toFixed(2));
+
   return (
     <Label>
       <LabelTxt>{label}</LabelTxt>
@@ -39,6 +41,7 @@ export default function SliderTemplate({
         customGradient={customGradient}
         isWarm={isWarm}
         isInverted={isInverted}
+        normalizedValue={normalizedValue}
       />
     </Label>
   );

@@ -1,6 +1,6 @@
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 import SliderTemplate from "./SliderTemplate";
-import defaultSettings from "../../../shared/defaultSettings";
+import { defaultSettings } from "../../defaultSettings";
 
 const SliderBreathSpeed = () => {
   const [breathSpeed, setBreathSpeed] = useChromeStorage(
