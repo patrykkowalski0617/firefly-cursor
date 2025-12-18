@@ -26,3 +26,14 @@ yarn-error.log*
 # Optional: lock files 
 # package-lock.json
 # yarn.lock
+
+#for build branch
+public/
+src/
+eslint.config.mjs
+manifest.json
+options.html
+package-lock.json
+package.json
+README.txt
+vite.config.js
