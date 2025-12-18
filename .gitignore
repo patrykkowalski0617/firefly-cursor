@@ -37,3 +37,4 @@ package-lock.json
 package.json
 README.txt
 vite.config.js
+temp/
