@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from "react";
 
 export function useChromeStorage(key, defaultValue) {
-  const hasChromeStorage = typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync;
+  const hasChromeStorage =
+    typeof chrome !== "undefined" && chrome.storage && chrome.storage.sync;
 
   const isDev = !hasChromeStorage;
 
   const [value, setValue] = useState(defaultValue);
+
+  // Ref for storing the debounce timeout
+  const timeoutRef = useRef(null);
 
   // =====================
   // INIT
@@ -32,24 +36,43 @@ export function useChromeStorage(key, defaultValue) {
   // UPDATE
   // =====================
   const update = (val) => {
-    setValue(val);
+    setValue(val); // immediate UI update
 
-    // -------- BUILD (Chrome Extension) --------
-    if (hasChromeStorage) {
-      chrome.storage.sync.set({ [key]: val });
-      return;
+    // Clear previous timeout if it exists
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
 
-    // -------- DEV (localhost / no Chrome API) --------
-    localStorage.setItem(key, JSON.stringify(val));
-
-    // Optional: notify live preview listeners (e.g. content styles)
+    // Immediately notify content script / injected code – works in both dev and build
     window.dispatchEvent(
-      new CustomEvent('firefly-storage', {
+      new CustomEvent("firefly-storage", {
         detail: { key, value: val },
       })
     );
+
+    // Debounce only for writing to chrome.storage.sync (quota protection)
+    timeoutRef.current = setTimeout(() => {
+      // -------- BUILD (Chrome Extension) --------
+      if (hasChromeStorage) {
+        chrome.storage.sync.set({ [key]: val });
+        return;
+      }
+
+      // -------- DEV (localhost / no Chrome API) --------
+      localStorage.setItem(key, JSON.stringify(val));
+
+      // In dev we already dispatched the event above, so no need to repeat it here
+    }, 800);
   };
+
+  // Cleanup: clear timeout when component unmounts
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return [value, update];
 }

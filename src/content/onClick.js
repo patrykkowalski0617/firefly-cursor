@@ -28,7 +28,6 @@ export const onClick = (fireflyCursor) => {
   const onClick = (e, cursor) => {
     const breathSpeed = getVariableForJS("breathSpeed");
     const clickColorIntensity = getVariableForJS("clickColorIntensity");
-    console.log(clickColorIntensity);
 
     const clickFactor = 0.3;
     const baseDuration = 3000; // ms
@@ -49,7 +48,6 @@ export const onClick = (fireflyCursor) => {
 
     const pastelToVividColor = getPastelToVividColor(clickColorIntensity);
     cursor.style.setProperty("--random-pastelToVividColor", pastelToVividColor);
-    console.log("pastelToVividColor", pastelToVividColor);
 
     cursor.classList.remove("click");
     clearTimeout(timeoutId);

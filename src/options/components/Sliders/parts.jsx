@@ -1,38 +1,42 @@
-import styled from 'styled-components';
-
-export const Wrapper = styled.div`
-  max-width: 240px;
-  margin: 0 auto;
-  height: 70px;
-`;
+import styled from "styled-components";
 
 export const Label = styled.label`
   display: block;
+  text-align: center;
+`;
+
+export const LabelTxt = styled.div`
+  margin-bottom: 5px;
 `;
 
 export const Range = styled.input`
   -webkit-appearance: none;
   width: 100%;
-  height: 12px;
-  border-radius: 12px;
+  height: 32px;
+  border-radius: 20px;
   background: ${({ gradient }) => gradient};
   margin: 10px 0;
   outline: none;
-  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.4);
-
+  box-shadow: ${({ internalShadow }) => internalShadow};
+  padding: 4px;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background: #fff;
-    border: 3px solid #333;
+    background: radial-gradient(
+      circle at 50% 50%,
+      #888888 0%,
+      #444444 25%,
+      #111111 50%,
+      #000000 100%
+    );
     cursor: pointer;
     margin-top: -8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    // tutaj daj external shadow
   }
   &::-webkit-slider-runnable-track {
-    height: 12px;
-    border-radius: 12px;
+    height: 8px;
+    border-radius: 8px;
   }
 `;

@@ -5,6 +5,7 @@ export const createFireflyCursor = () => {
   );
 
   const isItOptionRender = document.querySelector("#firefly-cursor-root");
+
   const fireflyCursor = document.querySelector(`.fireflyCursor`);
 
   if (isItOptionRender) {

@@ -1,20 +1,22 @@
-import { useChromeStorage } from '../../hooks/useChromeStorage';
-import SliderTemplate from './SliderTemplate';
+import { useChromeStorage } from "../../hooks/useChromeStorage";
+import SliderTemplate from "./SliderTemplate";
+import defaultSettings from "../../../shared/defaultSettings";
 
 const SliderMicroMotion = () => {
-  const [microMotion, setMicroMotion] = useChromeStorage('microMotion', 50);
+  const [microMotion, setMicroMotion] = useChromeStorage(
+    "microMotion",
+    defaultSettings.microMotion
+  );
   return (
-    <>
-      <SliderTemplate
-        id="microMotion"
-        label="Micro Motion Range"
-        min={0}
-        max={50}
-        value={microMotion}
-        gradient="linear-gradient(to right, #cfcfcf, #6587ff)"
-        onChange={(e) => setMicroMotion(Number(e.target.value))}
-      />
-    </>
+    <SliderTemplate
+      id="microMotion"
+      label="Micro Motion Range"
+      min={0}
+      max={50}
+      value={microMotion}
+      gradient="linear-gradient(to right, #cfcfcf, #4a90e2)"
+      onChange={(e) => setMicroMotion(Number(e.target.value))}
+    />
   );
 };
 export default SliderMicroMotion;
