@@ -5,7 +5,7 @@ import { defaultSettings } from "../../defaultSettings";
 const SliderOpacity = () => {
   const [opacity, setOpacity] = useChromeStorage(
     "opacity",
-    defaultSettings.opacity
+    defaultSettings.darkMode.opacity
   );
   const min = 15;
   const max = 100;

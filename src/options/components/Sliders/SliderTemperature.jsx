@@ -5,7 +5,7 @@ import { defaultSettings } from "../../defaultSettings";
 const SliderTemperature = () => {
   const [temperature, setTemperature] = useChromeStorage(
     "temperature",
-    defaultSettings.temperature
+    defaultSettings.darkMode.temperature
   );
   return (
     <SliderTemplate

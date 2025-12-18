@@ -5,7 +5,7 @@ import { defaultSettings } from "../../defaultSettings";
 const SliderBreathSpeed = () => {
   const [breathSpeed, setBreathSpeed] = useChromeStorage(
     "breathSpeed",
-    defaultSettings.breathSpeed
+    defaultSettings.darkMode.breathSpeed
   );
   return (
     <SliderTemplate

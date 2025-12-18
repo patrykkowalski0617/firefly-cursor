@@ -1,6 +1,4 @@
-import { defaultSettings } from "../defaultSettings";
-
-export const resetSettings = () => {
+export const resetSettings = (defaultSettings) => {
   const hasChromeStorage =
     typeof chrome !== "undefined" && chrome.storage && chrome.storage.sync;
   if (hasChromeStorage) {

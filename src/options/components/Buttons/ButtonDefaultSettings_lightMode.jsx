@@ -3,15 +3,15 @@ import { resetSettings } from "../../hooks/resetSettings";
 import { defaultSettings } from "../../defaultSettings";
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 
-const ButtonDefaultSettings = () => {
+const ButtonDefaultSettings_lightMode = () => {
   const [isDarkMode, setIsDarkMode] = useChromeStorage(
     "isDarkMode",
     defaultSettings.darkMode.isDarkMode
   );
 
   const handleClick = (e) => {
-    resetSettings(defaultSettings.darkMode);
-    setIsDarkMode(true);
+    resetSettings(defaultSettings.lightMode);
+    setIsDarkMode(false);
   };
   if (!isDarkMode) {
     document.body.classList.add("light-mode");
@@ -21,11 +21,11 @@ const ButtonDefaultSettings = () => {
 
   return (
     <ButtonTemplate
-      id="buttonDefaultSettings"
-      label="Default settings dark mode"
+      id="buttonDefaultSettings_lightMode"
+      label="Default settings light mode"
       onClick={handleClick}
     />
   );
 };
 
-export default ButtonDefaultSettings;
+export default ButtonDefaultSettings_lightMode;

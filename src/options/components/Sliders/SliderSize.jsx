@@ -3,7 +3,10 @@ import SliderTemplate from "./SliderTemplate";
 import { defaultSettings } from "../../defaultSettings";
 
 const SliderSize = () => {
-  const [size, setSize] = useChromeStorage("size", defaultSettings.size);
+  const [size, setSize] = useChromeStorage(
+    "size",
+    defaultSettings.darkMode.size
+  );
   return (
     <SliderTemplate
       id="sizeSlider"
