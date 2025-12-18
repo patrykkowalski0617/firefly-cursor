@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { thumbAppearance } from "../parts";
 
 export const Label = styled.label`
   display: flex;
@@ -12,6 +13,7 @@ export const LabelTxt = styled.span`
     text-align: right;
   }
 `;
+
 export const Input = styled.input`
   display: none;
 
@@ -30,19 +32,15 @@ export const Switch = styled.span`
   border-radius: 32px;
   background: linear-gradient(90deg, #ffffff, #4a90e2);
   position: relative;
-  box-shadow:
-    inset 0 2px 8px rgba(0, 0, 0, 0.4),
-    0 15px 18px rgba(0, 0, 0, 0.4);
-
+  display: inline-block;
+  overflow: hidden;
   &::before {
     content: "";
     position: absolute;
+    transition: transform 0.3s ease;
     top: 4px;
     left: 4px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #fff;
-    transition: transform 0.3s ease;
+    ${thumbAppearance}
+    box-shadow: var(--switch-thumb-shadow);
   }
 `;

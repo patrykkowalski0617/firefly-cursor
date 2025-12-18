@@ -14,7 +14,6 @@ const SliderBreathSpeed = () => {
       min={10}
       max={200}
       value={breathSpeed}
-      gradient="linear-gradient(to right, #cfcfcf, #4a90e2)"
       onChange={(e) => setBreathSpeed(Number(e.target.value))}
     />
   );

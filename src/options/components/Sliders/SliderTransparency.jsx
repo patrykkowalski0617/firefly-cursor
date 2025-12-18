@@ -16,7 +16,7 @@ const SliderTransparency = () => {
       min={min}
       max={max}
       value={max - transparency + min}
-      gradient="linear-gradient(to right, #e74c3c,#cfcfcf)"
+      isWarm
       onChange={(e) => {
         const sliderValue = Number(e.target.value);
         setTransparency(max - sliderValue + min);

@@ -14,7 +14,6 @@ const SliderfollowDelay = () => {
       min={0}
       max={30}
       value={followDelay}
-      gradient="linear-gradient(to right, #cfcfcf, #4a90e2)"
       onChange={(e) => setfollowDelay(Number(e.target.value))}
     />
   );

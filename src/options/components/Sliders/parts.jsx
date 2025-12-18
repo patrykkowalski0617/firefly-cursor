@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { thumbAppearance } from "../parts";
 
 export const Label = styled.label`
   display: block;
@@ -14,27 +15,27 @@ export const Range = styled.input`
   width: 100%;
   height: 32px;
   border-radius: 20px;
-  background: ${({ gradient }) => gradient};
-  margin: 10px 0;
   outline: none;
-  box-shadow: ${({ internalShadow }) => internalShadow};
   padding: 4px;
+  overflow: hidden;
+  background: ${({ isInverted, isWarm, customGradient }) => {
+    const colors = isWarm ? "#e74c3c, #cfcfcf" : "#cfcfcf, #4a90e2";
+
+    const direction = isInverted ? "to left" : "to right";
+    console.log(customGradient);
+
+    return customGradient
+      ? customGradient
+      : `linear-gradient(${direction}, ${colors})`;
+  }};
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle at 50% 50%,
-      #888888 0%,
-      #444444 25%,
-      #111111 50%,
-      #000000 100%
-    );
+    ${thumbAppearance}
     cursor: pointer;
     margin-top: -8px;
-    // tutaj daj external shadow
+    box-shadow: var(--thumb-external-shadow);
   }
+
   &::-webkit-slider-runnable-track {
     height: 8px;
     border-radius: 8px;

@@ -13,11 +13,7 @@ $micro-drift-animation-base: micro-drift 10s infinite forwards linear;
     $micro-drift-animation-base;
   position: fixed;
   opacity: 0;
-  transition: opacity 1s ease;
-  transition: opacity 1s ease-in;
-  &.itIsOptionRender {
-    transition: calc(1s * var(--follow-delay-multiplier)) linear;
-  }
+  transition: calc(1s * var(--follow-delay-multiplier)) linear;
   &.visible {
     opacity: var(--opacity);
   }

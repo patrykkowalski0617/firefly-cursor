@@ -1,4 +1,3 @@
-// useMouseLightShadow.js
 import { useEffect, useRef } from "react";
 
 // ======================
@@ -36,7 +35,7 @@ const updateAllShadows = () => {
   subscribers.forEach((sub) => {
     if (!sub.ref.current) return;
 
-    const { ref, isInternal } = sub;
+    const { ref, isInternal, cssVariableName } = sub;
     const config = { ...DEFAULT_CONFIG, ...sub.customConfig };
     const { maxOffset, maxBlur, maxDist } = config;
 
@@ -57,7 +56,12 @@ const updateAllShadows = () => {
     const shadowType = isInternal ? "inset" : "";
     const newShadow = `${shadowType} ${offsetX}px ${offsetY}px ${blur}px ${SHADOW_COLOR}`;
 
-    ref.current.style.boxShadow = newShadow;
+    // Apply as CSS variable if name is provided, otherwise apply as inline box-shadow
+    if (cssVariableName) {
+      ref.current.style.setProperty(cssVariableName, newShadow);
+    } else {
+      ref.current.style.boxShadow = newShadow;
+    }
   });
 
   // Schedule next frame only if there are subscribers
@@ -95,12 +99,14 @@ if (typeof window !== "undefined") {
 export const useMouseLightShadow = (
   ref,
   isInternal = false,
-  customConfig = {}
+  customConfig = {},
+  cssVariableName = null
 ) => {
   const sub = useRef({
     ref,
     isInternal,
     customConfig,
+    cssVariableName,
   });
 
   useEffect(() => {
@@ -110,6 +116,7 @@ export const useMouseLightShadow = (
     currentSub.ref = ref;
     currentSub.isInternal = isInternal;
     currentSub.customConfig = customConfig;
+    currentSub.cssVariableName = cssVariableName;
 
     if (!ref.current) return;
 
@@ -117,9 +124,15 @@ export const useMouseLightShadow = (
     subscribers.add(currentSub);
 
     // Set initial shadow
-    ref.current.style.boxShadow = isInternal
+    const initialShadow = isInternal
       ? INITIAL_SHADOW_INSET
       : INITIAL_SHADOW_NORMAL;
+
+    if (cssVariableName) {
+      ref.current.style.setProperty(cssVariableName, initialShadow);
+    } else {
+      ref.current.style.boxShadow = initialShadow;
+    }
 
     // Scroll listener – element positions change
     const handleScroll = scheduleUpdate;
@@ -135,7 +148,7 @@ export const useMouseLightShadow = (
         rafId = null;
       }
     };
-  }, [ref, isInternal, customConfig]);
+  }, [ref, isInternal, customConfig, cssVariableName]);
 
   return null;
 };

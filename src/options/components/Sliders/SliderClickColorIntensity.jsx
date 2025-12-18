@@ -13,8 +13,9 @@ const SliderClickColorIntensity = () => {
       label="Click Color Intensity"
       min={0}
       max={100}
+      isInverted
+      isWarm
       value={clickColorIntensity}
-      gradient="linear-gradient(to right, #cfcfcf, #e74c3c)"
       onChange={(e) => setClickColorIntensity(Number(e.target.value))}
     />
   );

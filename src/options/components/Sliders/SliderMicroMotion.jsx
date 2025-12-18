@@ -14,7 +14,6 @@ const SliderMicroMotion = () => {
       min={0}
       max={50}
       value={microMotion}
-      gradient="linear-gradient(to right, #cfcfcf, #4a90e2)"
       onChange={(e) => setMicroMotion(Number(e.target.value))}
     />
   );

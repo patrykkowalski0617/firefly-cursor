@@ -10,15 +10,19 @@ export default function SliderTemplate({
   value,
   gradient,
   onChange,
+  isWarm,
+  isInverted,
+  customGradient,
 }) {
-  const externalRef = useRef(null); // kontener z zewnętrznym cieniem
-  const internalRef = useRef(null); // sam input z wewnętrznym cieniem
-
-  // Zewnętrzny cień na kontenerze (opcjonalnie – możesz to usunąć jeśli nie chcesz)
-  useMouseLightShadow(externalRef, false);
-
-  // Wewnętrzny cień (inset) bezpośrednio na input range
+  const internalRef = useRef(null);
   useMouseLightShadow(internalRef, true);
+
+  useMouseLightShadow(
+    internalRef,
+    false,
+    { maxOffset: 5, maxBlur: 2 },
+    "--thumb-external-shadow"
+  );
 
   return (
     <Label>
@@ -31,7 +35,10 @@ export default function SliderTemplate({
         value={value}
         onChange={onChange}
         gradient={gradient}
-        ref={internalRef} // wewnętrzny cień działa na samym suwaku
+        ref={internalRef}
+        customGradient={customGradient}
+        isWarm={isWarm}
+        isInverted={isInverted}
       />
     </Label>
   );

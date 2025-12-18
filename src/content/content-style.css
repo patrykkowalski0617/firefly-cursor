@@ -5,10 +5,6 @@
   animation: breath-animation calc(5s / var(--breath-multiplier)) infinite alternate ease-in-out, micro-drift 10s infinite forwards linear;
   position: fixed;
   opacity: 0;
-  transition: opacity 1s ease;
-  transition: opacity 1s ease-in;
-}
-.fireflyCursor.itIsOptionRender {
   transition: calc(1s * var(--follow-delay-multiplier)) linear;
 }
 .fireflyCursor.visible {

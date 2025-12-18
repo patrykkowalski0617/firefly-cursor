@@ -20,7 +20,7 @@ const lightenColor = (color, factor = 0.2) => ({
   b: Math.min(255, Math.round(color.b + (255 - color.b) * factor)),
 });
 
-export const calcColor = (val) => {
+const calcColor = (val) => {
   const rgbDarker = colorFromValue(val);
   const rgbLighter = lightenColor(rgbDarker, 0.3);
   return {
@@ -28,3 +28,5 @@ export const calcColor = (val) => {
     rgbLighter,
   };
 };
+
+export default calcColor;

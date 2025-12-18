@@ -1,5 +1,6 @@
 import { calcColor } from "./utilities";
 // import * as defaultSettings from "../shared/defaultSettings";
+// this variable is temporarily in two places. Here and in src/defaultSettings
 const defaultSettings = {
   temperature: 50,
   transparency: 50,
@@ -106,7 +107,7 @@ export const getVariablesFromStorage = () => {
       applySetting(key, value);
     }
 
-    // live Reacta update
+    // Live React update
     window.addEventListener("firefly-storage", (e) => {
       const { key, value } = e.detail;
       applySetting(key, value);
@@ -125,7 +126,7 @@ export const getVariablesFromStorage = () => {
     }
   });
 
-  // Nasłuchiwanie zmian w chrome.storage + natychmiastowe zmiany z firefly-storage (z debounce w hooku)
+  // Listen for changes in chrome.storage + immediate changes from firefly-storage (handled with debounce in hook)
   chrome.storage.onChanged.addListener((changes, namespace) => {
     if (namespace !== "sync") return;
 
@@ -134,7 +135,7 @@ export const getVariablesFromStorage = () => {
     }
   });
 
-  // Kluczowa poprawka: natychmiastowa reakcja na zmiany z options/popup nawet przy debounce
+  // Key fix: immediate reaction to changes from options/popup even with debounce
   window.addEventListener("firefly-storage", (e) => {
     const { key, value } = e.detail;
     if (key in defaultSettings) {

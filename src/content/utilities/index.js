@@ -1,3 +1,1 @@
-import { calcColor } from './calcColor';
-
-export { calcColor };
+export { default as calcColor } from "./calcColor";

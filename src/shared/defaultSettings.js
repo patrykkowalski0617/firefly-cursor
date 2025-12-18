@@ -1,3 +1,4 @@
+// this variable is temporarly in two places. Here and in src/content/getVariablesFromStorage
 const defaultSettings = {
   temperature: 50,
   transparency: 50,
