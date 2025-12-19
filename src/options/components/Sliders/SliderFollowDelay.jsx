@@ -1,6 +1,6 @@
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 import SliderTemplate from "./SliderTemplate";
-import { defaultSettings } from "../../defaultSettings";
+import defaultSettings from "../../defaultSettings";
 
 const SliderfollowDelay = () => {
   const [followDelay, setfollowDelay] = useChromeStorage(

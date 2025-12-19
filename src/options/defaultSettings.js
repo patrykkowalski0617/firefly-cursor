@@ -1,8 +1,10 @@
-// this variable is temporarily in two places.
-// 1. src/defaultSettings
-// 2. src/content/getVariablesFromStorage.js inside the file
+// This object is temporarily stored in two places:
+// 1. src/content/getVariablesFromStorage.js (must be inside the file, cannot use import)
+// 2. src/options/defaultSettings
+// It is becuse problems with build and imports between
+// non-react part of app (content/) and react part of app (options/)
 
-export const defaultSettings = {
+const defaultSettings = {
   crazyMode: {
     temperature: 100,
     opacity: 100,
@@ -34,3 +36,5 @@ export const defaultSettings = {
     defaultSetting: "light",
   },
 };
+
+export default defaultSettings;
