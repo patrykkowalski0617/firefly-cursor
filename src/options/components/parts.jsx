@@ -16,18 +16,17 @@ export const thumbAppearance = css`
   height: 24px;
   border-radius: 50%;
   background: var(--thumb-gradient);
-  opacity: 0.95;
 `;
 
 export const inputStyle = css`
   border: 4px solid var(--input-border-color);
   width: 100%;
-  height: 30px;
-  border-radius: 30px;
+  height: 32px;
+  border-radius: 100px;
   overflow: hidden;
   cursor: pointer;
   &:hover {
-    transform: scale(1.085);
+    filter: contrast(1.4);
   }
 `;
 

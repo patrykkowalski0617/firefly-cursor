@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { boxSadowTransiton, inputStyle, thumbAppearance } from "../parts";
 
 export const Label = styled.label`
@@ -24,20 +24,21 @@ export const Range = styled.input`
   outline: none;
   padding: 4px 0;
   ${boxSadowTransiton}
-  background: ${({
-    $isInverted,
-    $isWarm,
-    $customGradient,
-    $normalizedValue,
-  }) => {
+  ${({ $isWarm, $normalizedValue, $isInverted, $customGradient }) => {
     const colors = $isWarm
       ? `${interpolateColor($normalizedValue, "#e74c3c")}, #cfcfcf`
       : `${interpolateColor($normalizedValue, "#4a90e2")}, #cfcfcf`;
+
     const direction = $isInverted ? "to right" : "to left";
-    return $customGradient
+
+    const gradient = $customGradient
       ? $customGradient
       : `linear-gradient(${direction}, ${colors})`;
-  }};
+
+    return css`
+      background-image: url("/slider.svg"), ${gradient};
+    `;
+  }}
   &::-webkit-slider-thumb {
     ${thumbAppearance}
     -webkit-appearance: none;
