@@ -1,6 +1,6 @@
 import ButtonTemplate from "./ButtonTemplate";
 import { resetSettings } from "../../hooks/resetSettings";
-import { defaultSettings } from "../../defaultSettings";
+import defaultSettings from "../../defaultSettings";
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 
 const ButtonDefaultSettings_lightMode = () => {
