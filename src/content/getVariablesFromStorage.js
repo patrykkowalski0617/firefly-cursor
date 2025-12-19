@@ -1,5 +1,5 @@
 import { calcColor } from "./utilities";
-// import * as defaultSettings from "../shared/defaultSettings";
+
 // this variable is temporarily in two places.
 // 1. src/defaultSettings
 // 2. src/content/getVariablesFromStorage.js inside the file
