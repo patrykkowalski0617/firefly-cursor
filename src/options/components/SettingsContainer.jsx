@@ -8,6 +8,7 @@ import SliderClickColorIntensity from "./Sliders/SliderClickColorIntensity";
 import { SettingsContainerWrapper, Wrapper } from "./parts";
 import ButtonDefaultSettings from "./Buttons/ButtonDefaultSettings";
 import ButtonDefaultSettings_lightMode from "./Buttons/ButtonDefaultSettings_lightMode";
+import ButtonDefaultSettings_crazy from "./Buttons/ButtonDefaultSettings_crazy";
 
 export default function SettingsContainer() {
   return (
@@ -38,6 +39,9 @@ export default function SettingsContainer() {
       </Wrapper>
       <Wrapper>
         <ButtonDefaultSettings_lightMode />
+      </Wrapper>
+      <Wrapper>
+        <ButtonDefaultSettings_crazy />
       </Wrapper>
     </SettingsContainerWrapper>
   );

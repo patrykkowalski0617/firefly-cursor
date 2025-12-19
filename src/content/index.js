@@ -5,7 +5,7 @@ import { onClick } from "./onClick.js";
 
 const runFireflyCursor = () => {
   const fireflyCursor = createFireflyCursor();
-  getVariablesFromStorage(fireflyCursor);
+  getVariablesFromStorage();
   onMousemove(fireflyCursor);
   onClick(fireflyCursor);
 };

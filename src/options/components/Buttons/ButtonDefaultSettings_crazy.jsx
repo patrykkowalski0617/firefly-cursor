@@ -3,14 +3,14 @@ import { resetSettings } from "../../hooks/resetSettings";
 import { defaultSettings } from "../../defaultSettings";
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 
-const ButtonDefaultSettings = () => {
+const ButtonDefaultSettings_crazy = () => {
   const [isDarkMode, setIsDarkMode] = useChromeStorage(
     "isDarkMode",
-    defaultSettings.darkMode.isDarkMode
+    defaultSettings.crazyMode.isDarkMode
   );
 
   const handleClick = (e) => {
-    resetSettings(defaultSettings.darkMode);
+    resetSettings(defaultSettings.crazyMode);
     setIsDarkMode(true);
   };
   if (!isDarkMode) {
@@ -21,11 +21,11 @@ const ButtonDefaultSettings = () => {
 
   return (
     <ButtonTemplate
-      id="buttonDefaultSettings"
-      label="Best for dark mode"
+      id="buttonDefaultSettings_crazy"
+      label="Best for fun"
       onClick={handleClick}
     />
   );
 };
 
-export default ButtonDefaultSettings;
+export default ButtonDefaultSettings_crazy;

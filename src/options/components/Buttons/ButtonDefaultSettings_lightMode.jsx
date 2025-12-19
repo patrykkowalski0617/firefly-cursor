@@ -22,7 +22,7 @@ const ButtonDefaultSettings_lightMode = () => {
   return (
     <ButtonTemplate
       id="buttonDefaultSettings_lightMode"
-      label="Default settings - light mode"
+      label="Best for light mode"
       onClick={handleClick}
     />
   );

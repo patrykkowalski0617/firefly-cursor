@@ -25,7 +25,7 @@
 }
 @keyframes breath-animation-click {
   0% {
-    box-shadow: hsla(var(--random-pastelToVividColor), 0.5) 0px 0px calc(9px * var(--size-multiplier)) calc(9px * var(--size-multiplier));
+    box-shadow: hsla(var(--random-pastelToVividColor), 0.5) 0px 0px calc(80px * var(--click-intencity) * var(--size-multiplier)) calc(80px * var(--click-intencity) * var(--size-multiplier));
   }
   20% {
     box-shadow: hsla(var(--random-pastelToVividColor), 0.4) 0px 0px calc(100px * var(--size-multiplier)) calc(100px * var(--size-multiplier));

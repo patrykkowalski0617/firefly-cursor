@@ -3,6 +3,16 @@
 // 2. src/content/getVariablesFromStorage.js inside the file
 
 export const defaultSettings = {
+  crazyMode: {
+    temperature: 100,
+    opacity: 100,
+    size: 70,
+    microMotion: 50,
+    breathSpeed: 200,
+    followDelay: 30,
+    clickColorIntensity: 100,
+    isDarkMode: true,
+  },
   darkMode: {
     temperature: 50,
     opacity: 30,
