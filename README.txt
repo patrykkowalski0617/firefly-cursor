@@ -11,8 +11,6 @@ Under of a static pointer, you get a dynamic glow that reacts to movement, "brea
 * **Full Customization:** A dedicated options panel to tweak every visual aspect.
 * **Disabled when fullscreen is on:** Automatically disabled on fullscreen mode.
 
-* **The best for native dark mode pages**
-
 ## 🛠 Configuration & Customization
 
 The extension includes a React-powered options UI (`options.html`) where you can adjust:

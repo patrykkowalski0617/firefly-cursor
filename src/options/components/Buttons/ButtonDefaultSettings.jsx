@@ -22,7 +22,7 @@ const ButtonDefaultSettings = () => {
   return (
     <ButtonTemplate
       id="buttonDefaultSettings"
-      label="Default settings dark mode"
+      label="Default settings - dark mode"
       onClick={handleClick}
     />
   );

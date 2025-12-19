@@ -10,12 +10,13 @@ const SliderSize = () => {
   return (
     <SliderTemplate
       id="sizeSlider"
-      label="Size"
+      label="Firefly size"
       min={20}
       max={70}
       value={size}
       gradient="linear-gradient(to right, #cfcfcf, #4a90e2)"
       onChange={(e) => setSize(Number(e.target.value))}
+      $disableClickEffect
     />
   );
 };

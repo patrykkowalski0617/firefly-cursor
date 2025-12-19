@@ -16,6 +16,7 @@ const SliderTemperature = () => {
       value={temperature}
       $customGradient="linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)"
       onChange={(e) => setTemperature(Number(e.target.value))}
+      $disableClickEffect
     />
   );
 };

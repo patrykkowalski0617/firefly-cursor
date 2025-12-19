@@ -12,6 +12,7 @@ export default function SliderTemplate({
   $isWarm,
   $isInverted,
   $customGradient,
+  $disableClickEffect,
 }) {
   const internalRef = useRef(null);
   useMouseLightShadow(internalRef, true);
@@ -40,6 +41,7 @@ export default function SliderTemplate({
         $isWarm={$isWarm}
         $isInverted={$isInverted}
         $normalizedValue={$normalizedValue}
+        className={$disableClickEffect ? "content__disable-click" : ""}
       />
     </Label>
   );

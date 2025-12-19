@@ -10,7 +10,7 @@ const SliderClickColorIntensity = () => {
   return (
     <SliderTemplate
       id="clickColorIntensity"
-      label="Click Color Intensity"
+      label="Click intensity"
       min={0}
       max={100}
       $isWarm

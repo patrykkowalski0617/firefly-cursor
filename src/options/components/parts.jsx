@@ -26,4 +26,13 @@ export const inputStyle = css`
   border-radius: 30px;
   overflow: hidden;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.085);
+  }
+`;
+
+export const boxSadowTransiton = css`
+  transition:
+    box-shadow calc(1s * var(--follow-delay-multiplier)) linear,
+    transform 0.1s;
 `;

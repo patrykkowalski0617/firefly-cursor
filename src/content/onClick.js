@@ -17,6 +17,8 @@ export const onClick = (fireflyCursor) => {
   };
 
   const onClick = (e, cursor) => {
+    if (e.target.classList.contains("content__disable-click")) return;
+
     const breathSpeed = getVariableForJS("breathSpeed");
     const clickColorIntensity = getVariableForJS("clickColorIntensity");
 

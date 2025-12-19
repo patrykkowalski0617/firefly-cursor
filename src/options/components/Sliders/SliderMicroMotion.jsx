@@ -10,11 +10,12 @@ const SliderMicroMotion = () => {
   return (
     <SliderTemplate
       id="microMotion"
-      label="Micro Motion Range"
+      label="Micromovement"
       min={0}
       max={50}
       value={microMotion}
       onChange={(e) => setMicroMotion(Number(e.target.value))}
+      $disableClickEffect
     />
   );
 };

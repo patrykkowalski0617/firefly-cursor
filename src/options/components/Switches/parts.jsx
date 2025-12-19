@@ -31,7 +31,7 @@ export const Switch = styled.span`
   width: 64px;
   position: relative;
   display: inline-block;
-  transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
+  ${boxSadowTransiton}
   &::before {
     ${thumbAppearance}
     content: "";
@@ -40,6 +40,6 @@ export const Switch = styled.span`
     top: 0px;
     left: 0px;
     box-shadow: var(--switch-thumb-shadow);
-    transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
+    ${boxSadowTransiton}
   }
 `;

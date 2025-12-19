@@ -10,11 +10,12 @@ const SliderBreathSpeed = () => {
   return (
     <SliderTemplate
       id="breathSpeed"
-      label="Breath Speed"
+      label="Breath"
       min={10}
       max={200}
       value={breathSpeed}
       onChange={(e) => setBreathSpeed(Number(e.target.value))}
+      $disableClickEffect
     />
   );
 };

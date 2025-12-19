@@ -4,6 +4,7 @@ $breath-shadow-base: var(--pulse-from) 0px 0px
 $micro-drift-animation-base: micro-drift 10s infinite forwards linear;
 
 #fireflyCursor {
+  color-scheme: only light;
   z-index: 9999;
   height: 0;
   width: 0;
@@ -17,13 +18,13 @@ $micro-drift-animation-base: micro-drift 10s infinite forwards linear;
   &.visible {
     opacity: var(--opacity);
   }
-
   &.click {
     animation:
       breath-animation-click var(--breath-click-duration) forwards ease-out,
       $micro-drift-animation-base;
   }
 }
+
 @keyframes breath-animation {
   from {
     box-shadow: $breath-shadow-base;

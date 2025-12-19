@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { inputStyle, thumbAppearance } from "../parts";
+import { boxSadowTransiton, inputStyle, thumbAppearance } from "../parts";
 
 export const Label = styled.label`
   display: block;
@@ -25,7 +25,7 @@ export const Range = styled.input`
   width: 100%;
   outline: none;
   padding: 4px 0;
-  transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
+  ${boxSadowTransiton}
   background: ${({
     $isInverted,
     $isWarm,
@@ -46,7 +46,7 @@ export const Range = styled.input`
     cursor: pointer;
     margin-top: -8px;
     box-shadow: var(--thumb-external-shadow);
-    transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
+    ${boxSadowTransiton}
   }
 
   &::-webkit-slider-runnable-track {

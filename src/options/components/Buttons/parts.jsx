@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { inputStyle } from "../parts";
+import { inputStyle, boxSadowTransiton } from "../parts";
 
 export const Label = styled.span`
   position: relative;
@@ -9,7 +9,7 @@ export const Button = styled.button`
   ${inputStyle}
   position: relative;
   display: inline-block;
-  transition: box-shadow calc(1s * var(--follow-delay-multiplier)) linear;
+  ${boxSadowTransiton}
   margin-top: 20px;
   font-size: 12px;
   &::before {
@@ -23,7 +23,7 @@ export const Button = styled.button`
     position: absolute;
     z-index: 1;
     opacity: 0;
-    transition: 0.3s;
+    transition: 0.1s;
   }
   &:hover::before {
     opacity: 1;
