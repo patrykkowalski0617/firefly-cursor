@@ -5,7 +5,7 @@
 // non-react part of app (content/) and react part of app (options/)
 
 const defaultSettings = {
-  crazyMode: {
+  allWayUpMode: {
     temperature: 100,
     opacity: 100,
     size: 70,
@@ -13,12 +13,12 @@ const defaultSettings = {
     breathSpeed: 200,
     followDelay: 30,
     clickColorIntensity: 100,
-    defaultSetting: "crazy",
+    defaultSetting: "allWayUp",
   },
   darkMode: {
-    temperature: 50,
+    temperature: 40,
     opacity: 30,
-    size: 30,
+    size: 40,
     microMotion: 25,
     breathSpeed: 50,
     followDelay: 0,

@@ -12,15 +12,15 @@ const flickerOn = keyframes`
     opacity: 0;
     background: linear-gradient(90deg, #f39c12, #e74d3c22);
   }
-  10% {
+  15% {
     opacity: 1;
     background: linear-gradient(90deg, #f39c12, #e74d3c22);
   }
-  20% {
+  30% {
     opacity: 0;
     background: linear-gradient(90deg, #f39c12, #e74d3c22);
   }
-  30% {
+  45% {
     opacity: 1;
     background: linear-gradient(90deg, #f39c12, #e74c3c);
   }
@@ -35,11 +35,11 @@ export const flickerOff = keyframes`
     opacity: 0;
     background: linear-gradient(90deg, #f39c12, #e74d3c7a);
   }
-  10% {
+  15% {
     opacity: 1;
     background: linear-gradient(90deg, #f39c12, #e74d3c7a);
   }
-  20% {
+  30% {
     opacity: 0;
     background: linear-gradient(90deg, #f39c12, #e74d3c7a);
   }
@@ -72,6 +72,6 @@ export const Button = styled.button`
   }
 
   &:not(:hover)::before {
-    animation: ${flickerOff} 0.6s forwards;
+    animation: ${flickerOff} 0.6s 0.6s forwards;
   }
 `;
