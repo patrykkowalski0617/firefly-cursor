@@ -11,7 +11,7 @@ import {
 import {
   ButtonDefaultSettings,
   ButtonDefaultSettings_lightMode,
-  ButtonDefaultSettings_crazy,
+  ButtonDefaultSettings_allWayUp,
 } from "./Buttons";
 
 export default function SettingsContainer() {
@@ -45,7 +45,7 @@ export default function SettingsContainer() {
         <ButtonDefaultSettings_lightMode />
       </Wrapper>
       <Wrapper>
-        <ButtonDefaultSettings_crazy />
+        <ButtonDefaultSettings_allWayUp />
       </Wrapper>
     </SettingsContainerWrapper>
   );

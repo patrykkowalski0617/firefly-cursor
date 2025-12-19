@@ -33,5 +33,5 @@ export const inputStyle = css`
 export const boxSadowTransiton = css`
   transition:
     box-shadow calc(1s * var(--follow-delay-multiplier)) linear,
-    transform 0.1s;
+    filter 0.3s;
 `;
