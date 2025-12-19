@@ -4,16 +4,15 @@ import { defaultSettings } from "../../defaultSettings";
 import { useChromeStorage } from "../../hooks/useChromeStorage";
 
 const ButtonDefaultSettings_crazy = () => {
-  const [isDarkMode, setIsDarkMode] = useChromeStorage(
-    "isDarkMode",
-    defaultSettings.crazyMode.isDarkMode
+  const [defaultSetting] = useChromeStorage(
+    "defaultSetting",
+    defaultSettings.crazyMode.defaultSetting
   );
 
   const handleClick = (e) => {
     resetSettings(defaultSettings.crazyMode);
-    setIsDarkMode(true);
   };
-  if (!isDarkMode) {
+  if (defaultSetting === "light") {
     document.body.classList.add("light-mode");
   } else {
     document.body.classList.remove("light-mode");

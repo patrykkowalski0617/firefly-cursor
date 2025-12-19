@@ -11,12 +11,12 @@ const defaultSettings = {
   breathSpeed: 50,
   followDelay: 0,
   clickColorIntensity: 50,
-  isDarkMode: true,
+  defaultSetting: "dark",
 };
 
 const variableForJS = {
   breathSpeed: "1",
-  isDarkMode: true,
+  defaultSetting: "dark",
 };
 
 export const getVariableForJS = (key) => {
@@ -97,8 +97,8 @@ export const getVariablesFromStorage = () => {
       );
     }
 
-    if (key === "isDarkMode") {
-      setVariableForJS("isDarkMode", val);
+    if (key === "defaultSetting") {
+      setVariableForJS("defaultSetting", val);
     }
   }
 

@@ -11,7 +11,7 @@ export const defaultSettings = {
     breathSpeed: 200,
     followDelay: 30,
     clickColorIntensity: 100,
-    isDarkMode: true,
+    defaultSetting: "crazy",
   },
   darkMode: {
     temperature: 50,
@@ -21,7 +21,7 @@ export const defaultSettings = {
     breathSpeed: 50,
     followDelay: 0,
     clickColorIntensity: 50,
-    isDarkMode: true,
+    defaultSetting: "dark",
   },
   lightMode: {
     temperature: 5,
@@ -31,6 +31,6 @@ export const defaultSettings = {
     breathSpeed: 50,
     followDelay: 0,
     clickColorIntensity: 100,
-    isDarkMode: false,
+    defaultSetting: "light",
   },
 };
