@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
     "build": "vite build",
-    "deploy:build": "echo 'Switching to build branch...' && git switch build && echo 'Merging master into build...' && git merge master && echo 'Running production build...' && npm run build && echo 'Adding built files to git...' && git add . && echo 'Committing build...' && git commit -m \"build\" --allow-empty && echo 'Pushing build branch to remote...' && git push && echo 'Switching back to master...' && git switch master && echo 'Running build on master (optional preview)...' && npm run build && echo 'Deployment complete!'"
+    "deploy:build": "git switch build && git merge master && npm run build && git add . && git commit -m \"build\" --allow-empty && git push && git switch master && npm run build"
   },
   "keywords": [],
   "author": "",
