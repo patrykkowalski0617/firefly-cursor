@@ -4,14 +4,36 @@ import { calcColor } from "./utilities";
 // 1. src/defaultSettings
 // 2. src/content/getVariablesFromStorage.js inside the file
 const defaultSettings = {
-  temperature: 50,
-  opacity: 30,
-  size: 30,
-  microMotion: 25,
-  breathSpeed: 50,
-  followDelay: 0,
-  clickColorIntensity: 50,
-  defaultSetting: "dark",
+  crazyMode: {
+    temperature: 100,
+    opacity: 100,
+    size: 70,
+    microMotion: 50,
+    breathSpeed: 200,
+    followDelay: 30,
+    clickColorIntensity: 100,
+    defaultSetting: "crazy",
+  },
+  darkMode: {
+    temperature: 50,
+    opacity: 30,
+    size: 30,
+    microMotion: 25,
+    breathSpeed: 50,
+    followDelay: 0,
+    clickColorIntensity: 50,
+    defaultSetting: "dark",
+  },
+  lightMode: {
+    temperature: 5,
+    opacity: 90,
+    size: 30,
+    microMotion: 25,
+    breathSpeed: 50,
+    followDelay: 0,
+    clickColorIntensity: 100,
+    defaultSetting: "light",
+  },
 };
 
 const variableForJS = {
@@ -35,7 +57,7 @@ export const getVariablesFromStorage = () => {
     let val = value;
 
     if (val === undefined) {
-      val = defaultSettings[key];
+      val = defaultSettings.darkMode[key];
     }
 
     if (key === "temperature") {
@@ -106,9 +128,10 @@ export const getVariablesFromStorage = () => {
   // DEV (localStorage)
   // =====================
   if (!hasChromeStorage) {
-    for (const key of Object.keys(defaultSettings)) {
+    for (const key of Object.keys(defaultSettings.darkMode)) {
       const stored = localStorage.getItem(key);
-      const value = stored !== null ? JSON.parse(stored) : defaultSettings[key];
+      const value =
+        stored !== null ? JSON.parse(stored) : defaultSettings.darkMode[key];
 
       applySetting(key, value);
     }

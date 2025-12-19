@@ -1,14 +1,18 @@
-import SliderSize from "./Sliders/SliderSize";
-import SliderOpacity from "./Sliders/SliderOpacity";
-import SliderTemperature from "./Sliders/SliderTemperature";
-import SliderMicroMotion from "./Sliders/SliderMicroMotion";
-import SliderBreathSpeed from "./Sliders/SliderBreathSpeed";
-import SliderfollowDelay from "./Sliders/SliderfollowDelay";
-import SliderClickColorIntensity from "./Sliders/SliderClickColorIntensity";
 import { SettingsContainerWrapper, Wrapper } from "./parts";
-import ButtonDefaultSettings from "./Buttons/ButtonDefaultSettings";
-import ButtonDefaultSettings_lightMode from "./Buttons/ButtonDefaultSettings_lightMode";
-import ButtonDefaultSettings_crazy from "./Buttons/ButtonDefaultSettings_crazy";
+import {
+  SliderSize,
+  SliderOpacity,
+  SliderTemperature,
+  SliderMicroMotion,
+  SliderBreathSpeed,
+  SliderFollowDelay,
+  SliderClickColorIntensity,
+} from "./Sliders";
+import {
+  ButtonDefaultSettings,
+  ButtonDefaultSettings_lightMode,
+  ButtonDefaultSettings_crazy,
+} from "./Buttons";
 
 export default function SettingsContainer() {
   return (
@@ -32,7 +36,7 @@ export default function SettingsContainer() {
         <SliderTemperature />
       </Wrapper>
       <Wrapper>
-        <SliderfollowDelay />
+        <SliderFollowDelay />
       </Wrapper>
       <Wrapper>
         <ButtonDefaultSettings />

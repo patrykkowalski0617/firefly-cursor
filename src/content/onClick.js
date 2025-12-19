@@ -9,7 +9,7 @@ export const onClick = (fireflyCursor) => {
 
     let hue = Math.floor(Math.random() * 360);
 
-    const saturation = Math.round(60 + (value / 100) * 40);
+    const saturation = Math.round(30 + (value / 100) * 70);
 
     const lightness = Math.round(85 - (value / 100) * 35);
 

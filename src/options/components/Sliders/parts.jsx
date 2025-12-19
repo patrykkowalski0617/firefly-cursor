@@ -12,16 +12,14 @@ export const LabelTxt = styled.div`
   font-size: 12px;
 `;
 
-// Funkcja pomocnicza do mieszania kolorów (HEX)
-// val: 0-1, color: kolor docelowy, target: kolor do którego dążymy (#cfcfcf)
 const interpolateColor = (val, color, target = "#cfcfcf") => {
-  // Jeśli nie chcesz bawić się w logikę JS, możesz użyć CSS color-mix (zalecane)
   return `color-mix(in srgb, ${color} ${val * 100}%, ${target})`;
 };
 
 export const Range = styled.input`
   ${inputStyle}
   -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   outline: none;
   padding: 4px 0;
@@ -43,6 +41,7 @@ export const Range = styled.input`
   &::-webkit-slider-thumb {
     ${thumbAppearance}
     -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     margin-top: -8px;
     box-shadow: var(--thumb-external-shadow);
