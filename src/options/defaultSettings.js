@@ -28,7 +28,7 @@ const defaultSettings = {
   lightMode: {
     temperature: 5,
     opacity: 90,
-    size: 30,
+    size: 50,
     microMotion: 25,
     breathSpeed: 50,
     followDelay: 0,

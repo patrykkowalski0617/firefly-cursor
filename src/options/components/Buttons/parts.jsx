@@ -3,22 +3,45 @@ import { inputStyle, boxSadowTransiton } from "../parts";
 
 export const Label = styled.span`
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  line-height: 2;
 `;
 
 const flickerOn = keyframes`
-  0%   { opacity: 0; }    
-  10%  { opacity: 1; }    
-  20%  { opacity: 0; }    
-  30%  { opacity: 1; }    
-  100% { opacity: 1; }    
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74d3c22);
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+  }
+  100% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+  }
 `;
 
 export const flickerOff = keyframes`
-  0%   { opacity: 0; }    
-  10%  { opacity: 1; }    
-  20%  { opacity: 0; }    
-  100% { opacity: 0; }    
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74d3c7a);
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 `;
 
 export const Button = styled.button`
@@ -28,26 +51,23 @@ export const Button = styled.button`
   ${boxSadowTransiton}
   margin-top: 20px;
   font-size: 12px;
-
   &::before {
     content: "";
-    background: linear-gradient(90deg, #f39c12, #e74c3c);
     filter: contrast(0.7);
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: block;
-    z-index: 1;
-    opacity: 0;
   }
 
   &:hover::before {
-    animation: ${flickerOn} 0.45s linear forwards;
+    animation: ${flickerOn} 0.6s linear forwards;
   }
 
   &:not(:hover)::before {
-    animation: ${flickerOff} 0.3s linear forwards;
+    animation: ${flickerOff} 0.6s linear forwards;
   }
 `;
