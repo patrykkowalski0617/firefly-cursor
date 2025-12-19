@@ -64,20 +64,43 @@ Error generating stack: `+a.message+`
     height: 8px;
     border-radius: 8px;
   }
-`;function ha({id:i,label:f,min:o,max:r,value:v,onChange:E,$isWarm:C,$isInverted:B,$customGradient:_,$disableClickEffect:p}){const H=Rl.useRef(null);_s(H,!0),_s(H,!1,{maxOffset:5,maxBlur:2},"--thumb-external-shadow");const U=Number(((v-o)/(r-o)).toFixed(2));return I.jsxs(D1,{children:[I.jsx(C1,{children:f}),I.jsx(U1,{type:"range",id:i,min:o,max:r,value:v,onChange:E,ref:H,$customGradient:_,$isWarm:C,$isInverted:B,$normalizedValue:U,className:p?"content__disable-click":""})]})}const pl={crazyMode:{temperature:100,opacity:100,size:70,microMotion:50,breathSpeed:200,followDelay:30,clickColorIntensity:100,defaultSetting:"crazy"},darkMode:{temperature:50,opacity:30,size:30,microMotion:25,breathSpeed:50,followDelay:0,clickColorIntensity:50,defaultSetting:"dark"},lightMode:{temperature:5,opacity:90,size:30,microMotion:25,breathSpeed:50,followDelay:0,clickColorIntensity:100,defaultSetting:"light"}},N1=()=>{const[i,f]=Kl("breathSpeed",pl.darkMode.breathSpeed);return I.jsx(ha,{id:"breathSpeed",label:"Breath",min:10,max:200,value:i,onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},R1=()=>{const[i,f]=Kl("clickColorIntensity",pl.darkMode.clickColorIntensity);return I.jsx(ha,{id:"clickColorIntensity",label:"Click intensity",min:0,max:100,$isWarm:!0,value:i,onChange:o=>f(Number(o.target.value))})},H1=()=>{const[i,f]=Kl("followDelay",pl.darkMode.followDelay);return document.documentElement.style.setProperty("--follow-delay-multiplier",(i/50).toFixed(2)),I.jsx(ha,{id:"followDelay",label:"Lag",min:0,max:30,value:i,onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},x1=()=>{const[i,f]=Kl("microMotion",pl.darkMode.microMotion);return I.jsx(ha,{id:"microMotion",label:"Micromovement",min:0,max:50,value:i,onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},B1=()=>{const[i,f]=Kl("opacity",pl.darkMode.opacity);return I.jsx(ha,{id:"opacitySlider",label:"Opacity",min:15,max:100,value:i,$isWarm:!0,onChange:v=>{const E=Number(v.target.value);f(E)},$disableClickEffect:!0})},j1=()=>{const[i,f]=Kl("size",pl.darkMode.size);return I.jsx(ha,{id:"sizeSlider",label:"Firefly size",min:20,max:70,value:i,gradient:"linear-gradient(to right, #cfcfcf, #4a90e2)",onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},q1=()=>{const[i,f]=Kl("temperature",pl.darkMode.temperature);return I.jsx(ha,{id:"colorSlider",label:"Temperature",min:0,max:100,value:i,$customGradient:"linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)",onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},Y1=Ve.span`
+`;function ha({id:i,label:f,min:o,max:r,value:v,onChange:E,$isWarm:C,$isInverted:B,$customGradient:_,$disableClickEffect:p}){const H=Rl.useRef(null);_s(H,!0),_s(H,!1,{maxOffset:5,maxBlur:2},"--thumb-external-shadow");const U=Number(((v-o)/(r-o)).toFixed(2));return I.jsxs(D1,{children:[I.jsx(C1,{children:f}),I.jsx(U1,{type:"range",id:i,min:o,max:r,value:v,onChange:E,ref:H,$customGradient:_,$isWarm:C,$isInverted:B,$normalizedValue:U,className:p?"content__disable-click":""})]})}const pl={crazyMode:{temperature:100,opacity:100,size:70,microMotion:50,breathSpeed:200,followDelay:30,clickColorIntensity:100,defaultSetting:"crazy"},darkMode:{temperature:50,opacity:30,size:30,microMotion:25,breathSpeed:50,followDelay:0,clickColorIntensity:50,defaultSetting:"dark"},lightMode:{temperature:5,opacity:90,size:50,microMotion:25,breathSpeed:50,followDelay:0,clickColorIntensity:100,defaultSetting:"light"}},N1=()=>{const[i,f]=Kl("breathSpeed",pl.darkMode.breathSpeed);return I.jsx(ha,{id:"breathSpeed",label:"Breath",min:10,max:200,value:i,onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},R1=()=>{const[i,f]=Kl("clickColorIntensity",pl.darkMode.clickColorIntensity);return I.jsx(ha,{id:"clickColorIntensity",label:"Click intensity",min:0,max:100,$isWarm:!0,value:i,onChange:o=>f(Number(o.target.value))})},H1=()=>{const[i,f]=Kl("followDelay",pl.darkMode.followDelay);return document.documentElement.style.setProperty("--follow-delay-multiplier",(i/50).toFixed(2)),I.jsx(ha,{id:"followDelay",label:"Lag",min:0,max:30,value:i,onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},x1=()=>{const[i,f]=Kl("microMotion",pl.darkMode.microMotion);return I.jsx(ha,{id:"microMotion",label:"Micromovement",min:0,max:50,value:i,onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},B1=()=>{const[i,f]=Kl("opacity",pl.darkMode.opacity);return I.jsx(ha,{id:"opacitySlider",label:"Opacity",min:15,max:100,value:i,$isWarm:!0,onChange:v=>{const E=Number(v.target.value);f(E)},$disableClickEffect:!0})},j1=()=>{const[i,f]=Kl("size",pl.darkMode.size);return I.jsx(ha,{id:"sizeSlider",label:"Firefly size",min:20,max:70,value:i,gradient:"linear-gradient(to right, #cfcfcf, #4a90e2)",onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},q1=()=>{const[i,f]=Kl("temperature",pl.darkMode.temperature);return I.jsx(ha,{id:"colorSlider",label:"Temperature",min:0,max:100,value:i,$customGradient:"linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)",onChange:o=>f(Number(o.target.value)),$disableClickEffect:!0})},Y1=Ve.span`
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  line-height: 2;
 `,G1=jh`
-  0%   { opacity: 0; }    
-  10%  { opacity: 1; }    
-  20%  { opacity: 0; }    
-  30%  { opacity: 1; }    
-  100% { opacity: 1; }    
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74d3c22);
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+  }
+  100% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+  }
 `,X1=jh`
-  0%   { opacity: 0; }    
-  10%  { opacity: 1; }    
-  20%  { opacity: 0; }    
-  100% { opacity: 0; }    
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    background: linear-gradient(90deg, #f39c12, #e74d3c7a);
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 `,Q1=Ve.button`
   ${qh}
   position: relative;
@@ -85,27 +108,24 @@ Error generating stack: `+a.message+`
   ${Ts}
   margin-top: 20px;
   font-size: 12px;
-
   &::before {
     content: "";
-    background: linear-gradient(90deg, #f39c12, #e74c3c);
     filter: contrast(0.7);
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: block;
-    z-index: 1;
-    opacity: 0;
   }
 
   &:hover::before {
-    animation: ${G1} 0.45s linear forwards;
+    animation: ${G1} 0.6s linear forwards;
   }
 
   &:not(:hover)::before {
-    animation: ${X1} 0.3s linear forwards;
+    animation: ${X1} 0.6s linear forwards;
   }
 `,js=({id:i,label:f,onClick:o})=>{const r=Rl.useRef(null);return _s(r,!0),I.jsx(Q1,{ref:r,onClick:o,id:i,children:I.jsx(Y1,{children:f})})},qs=i=>{typeof chrome<"u"&&chrome.storage&&chrome.storage.sync?(chrome.storage.sync.clear(),chrome.storage.sync.set(i,()=>{Object.entries(i).forEach(([o,r])=>{window.dispatchEvent(new CustomEvent("firefly-storage",{detail:{key:o,value:r}}))})})):(localStorage.clear(),Object.entries(i).forEach(([o,r])=>{localStorage.setItem(o,JSON.stringify(r)),window.dispatchEvent(new CustomEvent("firefly-storage",{detail:{key:o,value:r}}))}))},Z1=()=>{const[i]=Kl("defaultSetting",pl.crazyMode.defaultSetting),f=o=>{qs(pl.crazyMode)};return i==="light"?document.body.classList.add("light-mode"):document.body.classList.remove("light-mode"),I.jsx(js,{id:"buttonDefaultSettings_crazy",label:"Best for fun",onClick:f})},L1=()=>{const[i]=Kl("defaultSetting",pl.darkMode.defaultSetting),f=o=>{qs(pl.lightMode)};return i==="light"?document.body.classList.add("light-mode"):document.body.classList.remove("light-mode"),I.jsx(js,{id:"buttonDefaultSettings_lightMode",label:"Best for light mode",onClick:f})},V1=()=>{const[i]=Kl("defaultSetting",pl.darkMode.defaultSetting),f=o=>{qs(pl.darkMode)};return i==="dark"?document.body.classList.add("light-mode"):document.body.classList.remove("light-mode"),I.jsx(js,{id:"buttonDefaultSettings",label:"Best for dark mode",onClick:f})};function K1(){return I.jsxs(E1,{children:[I.jsx(Ll,{children:I.jsx(j1,{})}),I.jsx(Ll,{children:I.jsx(x1,{})}),I.jsx(Ll,{children:I.jsx(N1,{})}),I.jsx(Ll,{children:I.jsx(B1,{})}),I.jsx(Ll,{children:I.jsx(R1,{})}),I.jsx(Ll,{children:I.jsx(q1,{})}),I.jsx(Ll,{children:I.jsx(H1,{})}),I.jsx(Ll,{children:I.jsx(V1,{})}),I.jsx(Ll,{children:I.jsx(L1,{})}),I.jsx(Ll,{children:I.jsx(Z1,{})})]})}const J1=Le`
   :root {
