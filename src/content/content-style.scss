@@ -1,39 +1,55 @@
+$breath-shadow-base: var(--pulse-from) 0px 0px
+  calc(70px * var(--size-multiplier)) calc(60px * var(--size-multiplier));
+
+$micro-drift-animation-base: micro-drift 10s infinite forwards linear;
+
 #fireflyCursor {
   color-scheme: only light;
   z-index: 9999;
   height: 0;
   width: 0;
-  animation: breath-animation calc(5s / var(--breath-multiplier)) infinite alternate ease-in-out, micro-drift 10s infinite forwards linear;
+  animation:
+    breath-animation calc(5s / var(--breath-multiplier)) infinite alternate
+      ease-in-out,
+    $micro-drift-animation-base;
   position: fixed;
   opacity: 0;
   transition: calc(1s * var(--follow-delay-multiplier)) linear;
-}
-#fireflyCursor.visible {
-  opacity: var(--opacity);
-}
-#fireflyCursor.click {
-  animation: breath-animation-click var(--breath-click-duration) forwards ease-out, micro-drift 10s infinite forwards linear;
+  &.visible {
+    opacity: var(--opacity);
+  }
+  &.click {
+    animation:
+      breath-animation-click var(--breath-click-duration) forwards ease-out,
+      $micro-drift-animation-base;
+  }
 }
 
 @keyframes breath-animation {
   from {
-    box-shadow: var(--pulse-from) 0px 0px calc(70px * var(--size-multiplier)) calc(60px * var(--size-multiplier));
+    box-shadow: $breath-shadow-base;
   }
   to {
-    box-shadow: var(--pulse-to) 0px 0px calc(80px * var(--size-multiplier)) calc(80px * var(--size-multiplier));
+    box-shadow: var(--pulse-to) 0px 0px calc(80px * var(--size-multiplier))
+      calc(80px * var(--size-multiplier));
   }
 }
+
 @keyframes breath-animation-click {
   0% {
-    box-shadow: hsla(var(--random-pastelToVividColor), 0.5) 0px 0px calc(80px * var(--click-intencity) * var(--size-multiplier)) calc(80px * var(--click-intencity) * var(--size-multiplier));
+    box-shadow: hsla(var(--random-pastelToVividColor), 0.5) 0px 0px
+      calc(80px * var(--click-intencity) * var(--size-multiplier))
+      calc(80px * var(--click-intencity) * var(--size-multiplier));
   }
   20% {
-    box-shadow: hsla(var(--random-pastelToVividColor), 0.4) 0px 0px calc(100px * var(--size-multiplier)) calc(100px * var(--size-multiplier));
+    box-shadow: hsla(var(--random-pastelToVividColor), 0.4) 0px 0px
+      calc(100px * var(--size-multiplier)) calc(100px * var(--size-multiplier));
   }
   100% {
-    box-shadow: var(--pulse-from) 0px 0px calc(70px * var(--size-multiplier)) calc(60px * var(--size-multiplier));
+    box-shadow: $breath-shadow-base;
   }
 }
+
 @keyframes micro-drift {
   0% {
     left: 0px;
@@ -439,4 +455,4 @@
     left: 0px;
     top: 0px;
   }
-}/*# sourceMappingURL=content-style.css.map */
+}

@@ -1,0 +1,23 @@
+import { useChromeStorage } from "../../hooks/useChromeStorage";
+import SliderTemplate from "./SliderTemplate";
+import { defaultSettings } from "../../defaultSettings";
+
+const SliderTemperature = () => {
+  const [temperature, setTemperature] = useChromeStorage(
+    "temperature",
+    defaultSettings.darkMode.temperature
+  );
+  return (
+    <SliderTemplate
+      id="colorSlider"
+      label="Temperature"
+      min={0}
+      max={100}
+      value={temperature}
+      $customGradient="linear-gradient(to right, #4a90e2, #ffffff, #f39c12, #e74c3c)"
+      onChange={(e) => setTemperature(Number(e.target.value))}
+      $disableClickEffect
+    />
+  );
+};
+export default SliderTemperature;

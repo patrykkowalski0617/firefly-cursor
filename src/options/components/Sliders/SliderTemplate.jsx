@@ -1,0 +1,48 @@
+import { useMouseLightShadow } from "../../hooks/useMouseLightShadow";
+import { Label, Range, LabelTxt } from "./parts";
+import { useRef } from "react";
+
+export default function SliderTemplate({
+  id,
+  label,
+  min,
+  max,
+  value,
+  onChange,
+  $isWarm,
+  $isInverted,
+  $customGradient,
+  $disableClickEffect,
+}) {
+  const internalRef = useRef(null);
+  useMouseLightShadow(internalRef, true);
+
+  useMouseLightShadow(
+    internalRef,
+    false,
+    { maxOffset: 5, maxBlur: 2 },
+    "--thumb-external-shadow"
+  );
+
+  const $normalizedValue = Number(((value - min) / (max - min)).toFixed(2));
+
+  return (
+    <Label>
+      <LabelTxt>{label}</LabelTxt>
+      <Range
+        type="range"
+        id={id}
+        min={min}
+        max={max}
+        value={value}
+        onChange={onChange}
+        ref={internalRef}
+        $customGradient={$customGradient}
+        $isWarm={$isWarm}
+        $isInverted={$isInverted}
+        $normalizedValue={$normalizedValue}
+        className={$disableClickEffect ? "content__disable-click" : ""}
+      />
+    </Label>
+  );
+}
