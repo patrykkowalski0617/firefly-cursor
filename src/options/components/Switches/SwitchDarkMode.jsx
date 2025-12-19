@@ -3,16 +3,16 @@ import SwitchTemplate from "./SwitchTemplate";
 import { defaultSettings } from "../../defaultSettings";
 
 const DefaultSettingsButton = () => {
-  const [defaultSetting, setDefaultSetting] = useChromeStorage(
-    "defaultSetting",
-    defaultSettings.darkMode.defaultSetting
+  const [isDarkMode, setIsDarkMode] = useChromeStorage(
+    "isDarkMode",
+    defaultSettings.darkMode.isDarkMode
   );
 
   const handleToggle = (e) => {
-    setDefaultSetting(e.target.checked ? "dark" : "light");
+    setIsDarkMode(e.target.checked);
   };
 
-  if (defaultSetting !== "dark") {
+  if (!isDarkMode) {
     document.body.classList.add("light-mode");
   } else {
     document.body.classList.remove("light-mode");
@@ -35,7 +35,7 @@ const DefaultSettingsButton = () => {
           preview
         </>
       }
-      checked={true}
+      checked={isDarkMode}
       onChange={handleToggle}
     />
   );
